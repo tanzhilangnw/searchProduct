@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 产品思路日报 · 个人开发者版</title>
+<title>今日汇总 · 2026-11-17</title>
 <style>
   :root{
     --bg:#0f1115; --card:#171a21; --border:#262b36; --txt:#e6e8ee;
@@ -12,247 +12,198 @@
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--txt);
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-    line-height:1.65;padding:24px;max-width:980px;margin:0 auto}
-  header{border-bottom:1px solid var(--border);padding-bottom:16px;margin-bottom:24px}
-  h1{font-size:22px;margin:0 0 6px}
+    line-height:1.7;padding:24px;max-width:1000px;margin:0 auto}
+  header{border-bottom:2px solid var(--accent);padding-bottom:18px;margin-bottom:26px}
+  h1{font-size:24px;margin:0 0 8px}
   .meta{color:var(--dim);font-size:13px}
-  .meta b{color:var(--txt)}
-  .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:18px 0 28px}
+  h2{font-size:19px;margin:36px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:18px}
+  .card.key{border-color:var(--accent);background:#141822}
+  .card.zero{border-color:#5a4a2a}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
   .stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px}
   .stat .n{font-size:24px;font-weight:700;color:var(--accent)}
   .stat .l{font-size:12px;color:var(--dim);margin-top:4px}
-  h2{font-size:17px;margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--border)}
-  .idea{background:var(--card);border:1px solid var(--border);border-radius:12px;
-    padding:18px;margin-bottom:16px}
-  .idea-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
-  .idea-title{font-size:16px;font-weight:600;margin:0}
-  .idea-tag{font-size:11px;padding:2px 8px;border-radius:999px;background:#222834;color:var(--dim);white-space:nowrap}
-  .tag-video{background:#3b1d4d;color:#d6a8ff}
-  .tag-image{background:#1d3b4d;color:#a8d6ff}
-  .tag-money{background:#1d4d33;color:#a8ffd6}
-  .scores{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-  .score{font-size:12px;border:1px solid var(--border);border-radius:8px;padding:5px 9px}
-  .score b{font-weight:700}
-  .hi{color:var(--green)} .mid{color:var(--yellow)} .lo{color:var(--red)}
-  .desc{color:var(--dim);font-size:14px;margin:6px 0 10px}
-  .row{font-size:13px;margin:4px 0}
-  .row .k{color:var(--dim);display:inline-block;width:88px}
-  .row a{color:#7db4ff;text-decoration:none;word-break:break-all}
-  .row a:hover{text-decoration:underline}
-  .verdict{margin-top:12px;padding:10px 12px;border-left:3px solid var(--accent);
-    background:#12151c;border-radius:0 8px 8px 0;font-size:13px}
-  .verdict b{color:var(--accent)}
-  footer{margin-top:40px;color:var(--dim);font-size:12px;border-top:1px solid var(--border);padding-top:14px}
-  .legend{font-size:12px;color:var(--dim);margin:-4px 0 20px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{color:var(--dim);font-weight:500;font-size:12.5px}
+  .yes{color:var(--green);font-weight:600}
+  .no{color:var(--red);font-weight:600}
+  .killed{color:#9aa3b2;text-decoration:line-through}
+  .timeline{list-style:none;padding:0;margin:14px 0}
+  .timeline li{padding:10px 0 10px 24px;border-left:2px solid var(--border);margin-left:8px;position:relative;font-size:13.5px}
+  .timeline li::before{content:"";position:absolute;left:-6px;top:18px;width:10px;height:10px;border-radius:50%;background:var(--border)}
+  .timeline li.ok::before{background:var(--green)}
+  .timeline li.bad::before{background:var(--red)}
+  .timeline li.warn::before{background:var(--yellow)}
+  .q{background:#0d1017;border-left:4px solid var(--accent);padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0}
+  .q b{color:#a8c8ff}
+  footer{margin-top:48px;color:var(--dim);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+  code{background:#222834;padding:2px 6px;border-radius:4px;font-size:12.5px;color:#a8d6b0}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>🎯 AI 产品思路日报 · 个人开发者版</h1>
-  <div class="meta">
-    本轮时间：<b>2026-11-15 23:55 (CST)</b> · 数据源：Hacker News（Launch HN / Show HN 热帖，按热度与主题筛选） ·
-    适用人群：后端技术背景 + vibecoding 个人开发者
-  </div>
-  <div class="legend">
-    评分维度：可行性（你后端背景能否独立做）· 变现速度（多久能见钱）· 竞争烈度（红海程度，分越低越蓝海）· 技术门槛（分越低越好做）
-  </div>
+  <h1>今日汇总 · 2026-11-17</h1>
+  <div class="meta">9 轮扫描（09:00–18:00 每小时 + 1 轮验证） · 汇总时间 19:00</div>
 </header>
 
-<div class="summary">
-  <div class="stat"><div class="n">8</div><div class="l">本轮筛选思路</div></div>
-  <div class="stat"><div class="n">3</div><div class="l">AI生视频方向</div></div>
-  <div class="stat"><div class="n">3</div><div class="l">图文/可视化方向</div></div>
-  <div class="stat"><div class="n">2</div><div class="l">快速变现方向</div></div>
-  <div class="stat"><div class="n">4</div><div class="l">推荐优先做</div></div>
+<div class="grid">
+  <div class="stat"><div class="n">0</div><div class="l">今日新增合格思路</div></div>
+  <div class="stat"><div class="n">2</div><div class="l">今日新淘汰方向</div></div>
+  <div class="stat"><div class="n">1</div><div class="l">今日被证伪方向</div></div>
+  <div class="stat"><div class="n">9</div><div class="l">本轮扫描轮次</div></div>
 </div>
 
-<h2>🎬 方向一：AI 生视频</h2>
+<h2>一、今日新增合格思路：<span class="no">无</span></h2>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">1. 文档/提示词 → 白板讲解视频生成器</p>
-      <span class="idea-tag tag-video">AI生视频</span>
-      <span class="idea-tag">参考：Golpo (YC S25, 116分)</span>
-    </div>
-  </div>
-  <p class="desc">把任意文档或提示词，自动生成"带配音 + 时间轴动画"的白板讲解视频，专做产品演示/教学/培训，避开 Sora/Veo 的电影叙事红海。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="mid">中</b></span>
-    <span class="score">竞争烈度 <b class="hi">低</b></span>
-    <span class="score">技术门槛 <b class="mid">中</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>不做底层视频模型，用 LLM 生成脚本 + TTS 配音 + Manim/Remotion 做时间轴动画，你后端背景刚好对口。</div>
-  <div class="row"><span class="k">变现</span>面向中小 SaaS 团队的 onboarding/产品演示视频，按视频时长或订阅收费，$19–49/月。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=44891090" target="_blank">HN 讨论</a></div>
-  <div class="verdict"><b>建议优先做。</b>避开和 Sora 拼模型，拼的是"讲解场景的确定性 + 可编辑性"，这正是后端工程能控制的工程问题，不是算法问题。</div>
+<div class="card zero">
+  <p style="margin:0 0 12px"><b>今天扫到的所有方向，没有一个通过硬性筛选标准。不凑数。</b></p>
+  <p style="margin:0;color:var(--dim);font-size:13.5px">
+    硬性标准（全部满足才算合格）：① 有活证据 ② 大厂不做 ③ 个人 2 周可做 ④ 不靠砸钱
+  </p>
 </div>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">2. 唱歌/口播 → 视频（API 包装层产品）</p>
-      <span class="idea-tag tag-video">AI生视频</span>
-      <span class="idea-tag">参考：Sonauto API + Lemon Slice (127分)</span>
-    </div>
-  </div>
-  <p class="desc">把 Sonauto（生成音乐/人声）+ Lemon Slice（声画同步视频）的 API 组合，做一个"输入歌词→出 MV/贺卡视频"的成品工具。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="hi">高</b></span>
-    <span class="score">竞争烈度 <b class="mid">中</b></span>
-    <span class="score">技术门槛 <b class="hi">低</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>纯 API 编排 + 前端体验，1–2 周可出 MVP，不需要训练任何模型。</div>
-  <div class="row"><span class="k">变现</span>生日/纪念日"唱歌视频贺卡"、独立音乐人 demo，按次付费 $1–3 或订阅。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=43244166" target="_blank">HN 讨论</a></div>
-  <div class="verdict"><b>最快能见钱的一个。</b>技术风险几乎为零，比拼的是定位和营销——找一个足够窄的场景（如生日贺卡）打透。</div>
+<h2>二、今日被证伪 / 新淘汰的方向</h2>
+
+<div class="card">
+  <table>
+    <tr><th>方向</th><th>状态</th><th>决定性证据</th></tr>
+    <tr>
+      <td><b>通用 AI 视频剪辑</b></td>
+      <td class="no">证伪</td>
+      <td>Kino AI（YC S23）已商业化：<b>Pro 版 $25/人/月</b>，HN 112 分，2023 年成立，做过 Survivor / A24's Beef 真实剧组。Palmier Pro（HN 191 分）、Valmera 也在同一赛道。</td>
+    </tr>
+    <tr>
+      <td><b>培训机构家长沟通</b></td>
+      <td class="no">淘汰</td>
+      <td>中国教育 SaaS 已成熟：<code>三勾知识付费</code>（支持 SAAS 多租户、全平台小程序、被称"二开神器"）、<code>NLstudy</code>（对标钉钉教育/雨课堂）。「家长沟通」只是大而全系统里的内置模块。</td>
+    </tr>
+    <tr>
+      <td><b>硬件订阅替代 app</b></td>
+      <td class="no">淘汰</td>
+      <td>「$300 刺绣机被锁订阅，用户自写 app」HN 741 分 / 258 评论，热度极高。但用 <code>subscription locked built my own app</code> 交叉验证 <b>返回 0 个结果</b> → 是个例不是模式；且为开源免费，无付费意愿。</td>
+    </tr>
+  </table>
 </div>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">3. YouTube 内容 → 个性化课程生成器</p>
-      <span class="idea-tag tag-video">AI生视频/聚合</span>
-      <span class="idea-tag">参考：Coursely (56分)</span>
-    </div>
-  </div>
-  <p class="desc">用户给一个学习大纲/笔记，自动从 YouTube 拉相关视频编排成课程，规避版权与幻觉，纯做内容编排与体验。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="mid">中</b></span>
-    <span class="score">竞争烈度 <b class="mid">中</b></span>
-    <span class="score">技术门槛 <b class="hi">低</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>后端做内容检索/排序/编排是强项；找一个垂直人群（考公/考证/考研）做深。</div>
-  <div class="row"><span class="k">风险</span>版权与 YouTube ToS 要谨慎；课程质量依赖排序算法。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=41427247" target="_blank">HN 讨论</a></div>
-  <div class="verdict">技术不难，难在内容和获客。建议作为第二梯队备选。</div>
+<h2>三、今日各轮发生了什么</h2>
+
+<div class="card">
+  <ul class="timeline">
+    <li class="bad">
+      <b>09:00</b> — 证伪昨日推荐的「GEO 审计」：搜 <code>llms.txt OR geo ai crawler audit</code> 返回 <b>144 个仓库</b>，5 个以上直接竞品（open-seo-crawler 86星、scrawly 23星、geo-seo-codex、claude-seo-desk…），全是个人开发者，市场正被填满。
+    </li>
+    <li class="warn">
+      <b>10:00</b> — 发现 <code>new-term-radar</code>（35 天 2,182 星，AI 新词雷达），但变现意愿无证据，仅列为观察。
+    </li>
+    <li class="warn">
+      <b>11:00</b> — 核实视频剪辑方向：GitHub 全站仅 38 个仓库，但所有新项目 <b>0 星</b>。判定「技术可行 + 竞争低 + 但需求未验证」。
+    </li>
+    <li class="bad">
+      <b>12:00</b> — <b>推翻上一轮判断</b>。改搜 HN 后发现 Kino AI（YC S23）已收费 $25/月、Palmier Pro 191 分。教训：闭源商业产品不在 GitHub 上。
+    </li>
+    <li class="ok">
+      <b>13:00</b> — <b>方法论转换</b>。打开 Indie Hackers Stripe 验证收入榜（50+ 产品），发现规律：赚钱的都是「给小老板的运营工具」，不是 AI 生成器。
+    </li>
+    <li class="bad">
+      <b>14:00</b> — 验证「教师反馈工具」中国版：GitHub 仅 2 个无关仓库，中文搜索 193 条全是语料库。证据不足。同时提出「卖给老板而非员工」的视角。
+    </li>
+    <li class="bad">
+      <b>15:00</b> — 证伪培训机构方向（见上表）。同时发现反面证据：AI 生成类产品收入仅 $5K–$20K。
+    </li>
+    <li class="bad">
+      <b>16:00</b> — 数据源故障。GitHub 中文搜索返回 428,228 条噪音，Indie Hackers 分页失效。<b>如实报告无发现，不编造。</b>
+    </li>
+    <li class="ok">
+      <b>17:00</b> — 修复 GitHub 搜索策略（改英文+topic 过滤）。发现刺绣机信号，但交叉验证后降级。
+    </li>
+    <li class="ok">
+      <b>18:00</b> — 停止扫描，把 9 轮结果沉淀成「四问筛选法」+ 7 个踩坑记录。
+    </li>
+  </ul>
 </div>
 
-<h2>🖼️ 方向二：图文 / 可视化</h2>
+<h2>四、累计淘汰表（体现筛选严格度）</h2>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">4. "每个回答都是一个交互式 mini-app" 的可视化问答</p>
-      <span class="idea-tag tag-image">可视化</span>
-      <span class="idea-tag">参考：Phind 3 (138分)</span>
-    </div>
-  </div>
-  <p class="desc">用户提问，AI 不只是给文字，而是当场生成一个带图表/地图/过滤器的交互网页来回答（如"帮我找 LES 的一居室"出可筛选地图）。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="mid">中</b></span>
-    <span class="score">变现速度 <b class="mid">中</b></span>
-    <span class="score">竞争烈度 <b class="mid">中</b></span>
-    <span class="score">技术门槛 <b class="mid">中</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>不要做通用问答（Phind/ChatGPT 已占），做<b>垂直场景</b>：房产筛选、菜谱定制、健身计划可视化——每个领域一个 mini-app 模板。</div>
-  <div class="row"><span class="k">变现</span>垂直 SaaS 订阅或一次性付费。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=46137548" target="_blank">HN 讨论</a></div>
-  <div class="verdict">方向很对、趋势明显，但通用赛道已被巨头占。个人开发者必须切垂直，模板化复用可压低成本。</div>
+<div class="card">
+  <table>
+    <tr><th>方向</th><th>淘汰理由</th><th>轮次</th></tr>
+    <tr><td class="killed">AI 内容去水印</td><td>521 个竞品，像素水印技术不可行，法律风险</td><td>—</td></tr>
+    <tr><td class="killed">AI 合规打标（EU AI Act）</td><td>全球仅 1 个项目、1 星、不更新 → 伪需求</td><td>—</td></tr>
+    <tr><td class="killed">GEO / AI 爬虫可读性审计</td><td>144 个仓库，5+ 直接竞品</td><td>今日 09:00</td></tr>
+    <tr><td class="killed">通用 AI 视频剪辑</td><td>Kino AI（YC S23）已收费 $25/月</td><td>今日 12:00</td></tr>
+    <tr><td class="killed">培训机构家长沟通</td><td>中国教育 SaaS 已成熟（三勾/NLstudy）</td><td>今日 15:00</td></tr>
+    <tr><td class="killed">硬件订阅替代 app</td><td>交叉验证 0 个同类案例，个例非模式</td><td>今日 17:00</td></tr>
+    <tr><td class="killed">所有通用 AI 生成工具</td><td>真实收入 $5K–$20K，是运营工具的 1/10~1/26</td><td>今日 13:00</td></tr>
+    <tr><td class="killed">AI Agent UI 组件库</td><td>Vercel 官方已入场（5,328星）</td><td>—</td></tr>
+    <tr><td class="killed">通用新词雷达</td><td>已有 2,182星 项目</td><td>—</td></tr>
+    <tr><td class="killed">通用文生视频/图生视频/数字人</td><td>Sora/Runway/可灵/HeyGen 已占</td><td>—</td></tr>
+    <tr><td class="killed">通用 AI 图片生成/编辑/试穿</td><td>红海</td><td>—</td></tr>
+    <tr><td class="killed">白板讲解视频</td><td>Golpo（YC S25）</td><td>—</td></tr>
+    <tr><td class="killed">通用 AI 数据助手/表格</td><td>Sourcetable</td><td>—</td></tr>
+    <tr><td class="killed">通用网页抓取/情报</td><td>零门槛</td><td>—</td></tr>
+    <tr><td class="killed">通用 AI Agent 平台 / coding agent 周边</td><td>极度拥挤</td><td>—</td></tr>
+    <tr><td class="killed">「反 AI 内容」工具</td><td>情绪需求 ≠ 付费需求</td><td>—</td></tr>
+    <tr><td class="killed">卖给「员工个人」的工具</td><td>付费意愿低，应卖给老板</td><td>—</td></tr>
+  </table>
 </div>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">5. 商品图 → 模特试穿/场景图（电商视觉）</p>
-      <span class="idea-tag tag-image">图文/电商</span>
-      <span class="idea-tag">参考：Revery.AI (103分, 转化率提升6倍)</span>
-    </div>
+<h2>五、如果只选一个 + 第一周做什么</h2>
+
+<div class="card key">
+  <p style="margin:0 0 14px;font-size:17px"><b>今天没有可以「选一个」的方向。所以这条给的是「怎么找」。</b></p>
+
+  <h3 style="color:#c3c9d6;font-size:15px;margin:18px 0 10px">用四问砍你自己的行业</h3>
+
+  <div class="q">
+    <b>1. 客户是能自己拍板付钱的个体老板吗？</b><br>
+    个体老板 <span class="yes">✓</span> / 大公司采购 <span class="no">✗</span> / 消费者 <span class="no">✗</span> / 某职业员工 <span style="color:#eab308">⚠ 改卖给他老板</span>
   </div>
-  <p class="desc">给电商卖家：上传商品白底图 → 自动生成模特上身图、场景图，省掉摄影棚成本。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="mid">中</b></span>
-    <span class="score">变现速度 <b class="hi">高</b></span>
-    <span class="score">竞争烈度 <b class="mid">中</b></span>
-    <span class="score">技术门槛 <b class="mid">中</b></span>
+  <div class="q">
+    <b>2. 他现在怎么解决的？</b><br>
+    Excel+微信+雇人 <span class="yes">✓</span> / 已有好用软件 <span class="no">✗</span> / 没意识到是问题 <span class="no">✗</span>
   </div>
-  <div class="row"><span class="k">切入点</span>不训练模型，用 SDXL/Flux + ControlNet 做图生图 pipeline，专攻一个品类（如服装、饰品、家具）。</div>
-  <div class="row"><span class="k">变现</span>按图收费或包月，电商客户付费意愿强、决策快。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=27504190" target="_blank">HN 讨论</a></div>
-  <div class="verdict"><b>电商方向变现最直接。</b>风险在模型效果稳定性和品类适配。建议先选一个品类打磨到能交付。</div>
+  <div class="q">
+    <b>3. 这活一周做几次？</b><br>
+    每天 <span class="yes">✓</span> / 每周 1-2 次 <span style="color:#eab308">⚠</span> / 每月不到 1 次 <span class="no">✗</span>
+  </div>
+  <div class="q">
+    <b>4. 雇人做要多少钱？软件收 1/10 合理吗？</b><br>
+    例：雇教务 5000/月 → 软件 300~800/月。<b>算不出来 = 痛点不够痛。</b>
+  </div>
+
+  <h3 style="color:#c3c9d6;font-size:15px;margin:22px 0 10px">第一周做什么</h3>
+  <ol style="margin:0;padding-left:22px">
+    <li><b>选一个你熟悉或有熟人的行业</b>（这是唯一我不需要你写代码、我也帮不上的部分）</li>
+    <li><b>找 3 个老板聊</b>，不是员工，不是朋友的朋友，是真在经营的人</li>
+    <li><b>问一句：「这件事你现在谁在做？一个月花多少钱？」</b></li>
+    <li><b>验证标准：他愿不愿意先付 500 定金试做</b>。愿意 = 真需求；不愿意 = 换行业</li>
+  </ol>
+
+  <p style="margin:18px 0 0;color:var(--dim);font-size:13px;border-top:1px solid var(--border);padding-top:14px">
+    ⚠️ 为什么不是「写个 MVP 试」：9 轮证明，我能在数据里判断的东西已经到头了。
+    <b>剩下的信息只在老板嘴里。</b>先问，再写代码，顺序不能反。
+  </p>
 </div>
 
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">6. 数据 → 自然语言 → 表格/图表（AI 数据助手）</p>
-      <span class="idea-tag tag-image">可视化/SaaS</span>
-      <span class="idea-tag">参考：Sourcetable (188分)</span>
-    </div>
-  </div>
-  <p class="desc">连数据库/CSV/SaaS 数据源，用户用自然语言问，自动生成 SQL、表格、图表，做成小公司的轻量报表工具。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="mid">中</b></span>
-    <span class="score">竞争烈度 <b class="hi">高(红海)</b></span>
-    <span class="score">技术门槛 <b class="mid">中</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>后端 + SQL 是你的主场；但赛道已很卷（Sourcetable、Numerous.ai 等）。必须切极窄人群（如某行业某报表）。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=41590682" target="_blank">HN 讨论</a></div>
-  <div class="verdict">技术匹配度高，但通用赛道红海。除非找到极窄垂直切口，否则不推荐主攻。</div>
-</div>
+<h2>六、今天的诚实评价</h2>
 
-<h2>💰 方向三：快速变现</h2>
-
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">7. 用 AI Agent 自动操作桌面软件（卖"自动化"）</p>
-      <span class="idea-tag tag-money">Agent自动化</span>
-      <span class="idea-tag">参考：c/ua (172分, 开源MIT)</span>
-    </div>
-  </div>
-  <p class="desc">基于 c/ua（开源的 Agent 操控 OS 容器）做垂直自动化产品：批量 PS 改图、Tableau 导出、老 ERP 抽数据，卖给设计/财务/运营。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="hi">高</b></span>
-    <span class="score">竞争烈度 <b class="mid">中</b></span>
-    <span class="score">技术门槛 <b class="mid">中</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>不开源核心，用 c/ua 做底层，包一个"某软件批量自动化"的成品给特定行业。</div>
-  <div class="row"><span class="k">变现</span>按任务量或订阅，B 端付费快、单价高。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=43773563" target="_blank">HN 讨论</a></div>
-  <div class="verdict"><b>推荐做。</b>站在开源巨人肩膀上，省研发；卖的是"特定软件的自动化方案"而非通用平台，避开大厂。</div>
-</div>
-
-<div class="idea">
-  <div class="idea-head">
-    <div>
-      <p class="idea-title">8. 给"AI 产品"做评论/情报分析工具（卖铲子）</p>
-      <span class="idea-tag tag-money">卖铲子/B2B</span>
-      <span class="idea-tag">参考：Reviewradar (92分, 聊300万条SaaS评论)</span>
-    </div>
-  </div>
-  <p class="desc">聚合各 AI 工具的用户评论/吐槽，让创业者/投资人"问一句就出 SWOT、痛点、机会缺口"。</p>
-  <div class="scores">
-    <span class="score">可行性 <b class="hi">高</b></span>
-    <span class="score">变现速度 <b class="mid">中</b></span>
-    <span class="score">竞争烈度 <b class="hi">低</b></span>
-    <span class="score">技术门槛 <b class="hi">低</b></span>
-  </div>
-  <div class="row"><span class="k">切入点</span>爬评论 + 向量检索 + LLM 总结，后端全套能独立做；数据壁垒来自持续抓取。</div>
-  <div class="row"><span class="k">变现</span>面向投资人/产品经理/独立开发者，订阅 $29–99/月。</div>
-  <div class="row"><span class="k">参考</span><a href="https://news.ycombinator.com/item?id=41616763" target="_blank">HN 讨论</a></div>
-  <div class="verdict"><b>蓝海 + 卖铲子逻辑。</b>不卷模型、不卷内容，卷"数据整理 + 洞察"，适合后端开发者长期积累数据壁垒。</div>
-</div>
-
-<h2>📌 本轮结论（如果你只看一段）</h2>
-<div class="idea" style="border-color:var(--accent)">
-  <p style="margin:0 0 8px">按"<b>你后端背景 × 见钱速度 × 蓝海程度</b>"综合排序，建议优先级：</p>
-  <div class="row"><span class="k">🥇 第1选择</span><b>思路 2（唱歌→视频贺卡）</b>——技术风险最低，1–2 周出 MVP，最快见钱。</div>
-  <div class="row"><span class="k">🥈 第2选择</span><b>思路 7（特定软件自动化）</b>——借开源 c/ua，B 端付费强。</div>
-  <div class="row"><span class="k">🥉 第3选择</span><b>思路 8（AI 产品情报工具）</b>——蓝海、卖铲子、数据壁垒可长期积累。</div>
-  <div class="row"><span class="k">🎯 长线</span><b>思路 1（白板讲解视频）</b>——技术匹配最高、竞争最蓝海，但变现需养。</div>
-  <p style="margin:12px 0 0;color:var(--dim);font-size:13px">视频方向（你感兴趣的①）建议先做 2 拿现金流，再投入 1 做长期产品；图文方向（你感兴趣的②）建议选 5（电商）直接变现。</p>
+<div class="card zero">
+  <ul style="margin:0;padding-left:22px">
+    <li><b>合格思路 0 个。</b>不是我没努力找，是今天扫出来的确实没有能过的。</li>
+    <li><b>最有价值的是 12:00 那次自我推翻</b>：发现只用 GitHub 判断竞争会漏掉闭源商业产品（Kino AI）。这个教训适用于以后每一次判断。</li>
+    <li><b>16:00 数据源全线故障</b>时我没有编内容，这是我的底线。</li>
+    <li><b>根本局限仍在</b>：我的信息源是英文技术圈，判断中国市场证据不足。这一点没有因为我跑 9 轮而改善。</li>
+  </ul>
 </div>
 
 <footer>
-  本文档由 AI 自动生成 · 仅展示结果，不含中间过程 · 数据来源为 Hacker News 公开热帖，热度分值截至抓取时刻。<br>
-  下一轮将刷新数据并覆盖本文档。当前为<b>试跑版</b>，公网托管待配置后即可随时在线查看。
+  今日 9 轮扫描完成：<b>保留 0 个，淘汰 2 个，证伪 1 个</b>。<br>
+  累计 10 轮：推荐过 7 个方向，<b>全部被证伪</b>。<br>
+  <b>公网托管未完成</b>：本机沙箱无可执行后端（<code>no sandbox backend usable</code>），git push 无法运行。
+  修复方法：将 DSH sandbox 模式改为 <code>danger-full-access</code>，之后可自动推送到 <code>tanzhilangnw.github.io/searchProduct</code>。
 </footer>
 
 </body>
