@@ -1,0 +1,954 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI × 游戏 · 机会调研 · 2026-11-21</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f5cf6'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2' fill='white'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#fff; --ink:#171b26; --ink2:#4b5364; --ink3:#858da0;
+    --line:#e6e9f0; --line2:#eef0f5;
+    --brand:#2f5cf6; --brand-ink:#1f46d6; --brand-soft:#edf1ff;
+    --good:#0e9f6e; --good-soft:#e8f7f1;
+    --warn:#c27803; --warn-soft:#fdf6e3;
+    --bad:#d92d20; --bad-soft:#fdeceb;
+    --violet:#6d4aff; --violet-soft:#f2efff;
+    --shadow:0 12px 36px -24px rgba(23,27,38,.28);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.92em;background:#f1f3f8;color:#394154;padding:2px 5px;border-radius:5px}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(247,248,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1060px;margin:0 auto;padding:11px 22px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .nav-brand{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:750;letter-spacing:-.01em;white-space:nowrap}
+  .brand-mark{width:27px;height:27px;border-radius:8px;background:linear-gradient(145deg,#2f5cf6,#6d4aff);color:#fff;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:850;letter-spacing:-.02em;box-shadow:0 4px 10px -5px rgba(47,92,246,.6)}
+  .nav-links{display:flex;gap:16px;flex-wrap:wrap}
+  .nav-links a{font-size:11.5px;font-weight:600;color:var(--ink3)}
+  .nav-links a:hover{color:var(--brand);text-decoration:none}
+
+  /* hero */
+  .hero{background:linear-gradient(135deg,#111827 0%,#1b2540 52%,#24325c 100%);color:#fff;padding:56px 0 0;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-180px;top:-220px;background:radial-gradient(circle,rgba(47,92,246,.45),rgba(47,92,246,0) 68%);pointer-events:none}
+  .hero::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;left:-160px;bottom:-220px;background:radial-gradient(circle,rgba(109,74,255,.35),rgba(109,74,255,0) 70%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:1}
+  .hero-kicker{font-size:10.5px;font-weight:800;letter-spacing:.18em;color:#9fb4ff;margin-bottom:16px}
+  .hero h1{font-size:44px;line-height:1.18;letter-spacing:-.045em;font-weight:800;max-width:820px;margin-bottom:18px}
+  .hero h1 em{font-style:normal;color:#8eabff;position:relative;white-space:nowrap}
+  .hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:7px;background:rgba(47,92,246,.35);border-radius:99px;z-index:-1}
+  .hero-sub{font-size:15.5px;line-height:1.8;color:#c3cce0;max-width:760px}
+  .hero-sub b{color:#fff;font-weight:650}
+  .hero-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:11.5px;color:#8f9bb6}
+  .hero-meta b{color:#dce3f5;font-weight:650}
+  .hero-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:rgba(255,255,255,.12);border-top:1px solid rgba(255,255,255,.12);margin-top:34px}
+  .hero-stat{background:rgba(255,255,255,.035);padding:17px 16px 19px}
+  .hero-stat .n{font-size:25px;font-weight:800;letter-spacing:-.035em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .hero-stat .t{font-size:10.5px;color:#8f9bb6;margin-top:4px;letter-spacing:.02em}
+  .hero-stat .n small{font-size:12px;font-weight:650;color:#a9b7d8;margin-left:2px}
+
+  /* sections */
+  .section{padding:46px 0 0;scroll-margin-top:72px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
+  .sec-head .num{font-size:11.5px;font-weight:800;color:#fff;background:var(--ink);width:27px;height:27px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.02em}
+  .sec-head h2{font-size:24px;font-weight:780;letter-spacing:-.03em;line-height:1.3}
+  .sec-head .aside{margin-left:auto;font-size:11px;color:var(--ink3);white-space:nowrap}
+  .sec-intro{font-size:13.5px;color:var(--ink2);max-width:820px;margin:-4px 0 20px;line-height:1.8}
+  .sec-intro b{color:var(--ink);font-weight:700}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+  .card-pad{padding:22px 24px}
+
+  /* summary */
+  .summary-card{background:linear-gradient(135deg,#17203a 0%,#22305a 100%);color:#fff;border-radius:16px;padding:28px 30px;box-shadow:0 18px 48px -30px rgba(23,32,58,.7);position:relative;overflow:hidden}
+  .summary-card::after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;right:-100px;top:-120px;background:radial-gradient(circle,rgba(47,92,246,.5),rgba(47,92,246,0) 70%)}
+  .summary-label{font-size:10.5px;font-weight:800;letter-spacing:.16em;color:#93a7d8;margin-bottom:12px}
+  .summary-main{font-size:22px;font-weight:750;line-height:1.55;letter-spacing:-.025em;position:relative;z-index:1}
+  .summary-main em{font-style:normal;color:#9db4ff}
+  .summary-sub{font-size:13px;color:#b9c5df;margin-top:12px;line-height:1.75;max-width:820px;position:relative;z-index:1}
+  .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);position:relative;z-index:1}
+  .summary-grid .n{font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.1;font-variant-numeric:tabular-nums}
+  .summary-grid .t{font-size:10.5px;color:#8f9bb6;margin-top:4px}
+
+  .three-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+  .point{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px 18px 16px;box-shadow:var(--shadow)}
+  .point-num{width:22px;height:22px;border-radius:6px;background:var(--brand-soft);color:var(--brand);font-size:10.5px;font-weight:850;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+  .point h3{font-size:14px;font-weight:750;letter-spacing:-.015em;margin-bottom:6px}
+  .point p{font-size:12px;color:var(--ink3);line-height:1.7}
+  .point p b{color:var(--ink2);font-weight:650}
+
+  /* data source cards */
+  .source{margin-bottom:14px;overflow:hidden}
+  .source-head{display:flex;align-items:center;gap:13px;padding:18px 22px 14px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+  .source-ico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:850;flex-shrink:0;letter-spacing:-.02em}
+  .ico-bili{background:#e8f3ff;color:#0b7bd6}
+  .ico-dy{background:#fff0f2;color:#d92d5b}
+  .ico-ph{background:#fff3e6;color:#c05a00}
+  .ico-hn{background:#fff0e8;color:#d9531e}
+  .ico-wx{background:#e9f8ee;color:#0e9f6e}
+  .source-title{font-size:15.5px;font-weight:750;letter-spacing:-.02em}
+  .source-sub{font-size:11px;color:var(--ink3);margin-top:2px}
+  .source-badges{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+  .src-badge{font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;background:#f3f5fa;color:#6b7488;white-space:nowrap}
+  .source-body{padding:16px 22px 20px}
+  .source-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
+  .sstat{background:#fafbfe;border:1px solid var(--line2);border-radius:9px;padding:9px 11px}
+  .sstat .n{font-size:19px;font-weight:800;letter-spacing:-.02em;line-height:1.2;font-variant-numeric:tabular-nums}
+  .sstat .t{font-size:9.5px;color:var(--ink3);margin-top:2px}
+  .sstat .n.good{color:var(--good)}
+  .sstat .n.bad{color:var(--bad)}
+  .sstat .n.warn{color:var(--warn)}
+
+  .bili-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mini-table{background:#fbfcfe;border:1px solid var(--line2);border-radius:10px;overflow:hidden}
+  .mini-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line2);background:#fff}
+  .mini-title{font-size:11.5px;font-weight:750}
+  .mini-note{font-size:9.5px;color:var(--ink3);white-space:nowrap}
+  table{width:100%;border-collapse:collapse}
+  .mini-table th{text-align:left;font-size:9px;font-weight:800;letter-spacing:.06em;color:var(--ink3);text-transform:uppercase;padding:7px 10px;background:#fafbfe;border-bottom:1px solid var(--line2)}
+  .mini-table td{padding:8px 10px;border-bottom:1px solid var(--line2);font-size:10.5px;color:var(--ink2);vertical-align:top}
+  .mini-table tr:last-child td{border-bottom:none}
+  .mini-table td.title{color:var(--ink);font-weight:600;line-height:1.45}
+  .mini-table td.num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap}
+  .mini-table td.date{color:var(--ink3);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:11px}
+  .table-wrap table{min-width:720px}
+  .table-wrap thead th{text-align:left;font-size:9.5px;font-weight:800;letter-spacing:.07em;color:var(--ink3);text-transform:uppercase;padding:10px 12px;background:#fafbfe;border-bottom:1px solid var(--line);white-space:nowrap}
+  .table-wrap tbody td{padding:10px 12px;border-bottom:1px solid var(--line2);font-size:11.5px;color:var(--ink2);vertical-align:top}
+  .table-wrap tbody tr:last-child td{border-bottom:none}
+  .table-wrap tbody td:first-child{color:var(--ink);font-weight:650}
+  .table-wrap .num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--ink);white-space:nowrap}
+  .table-wrap .date{color:var(--ink3);white-space:nowrap;font-variant-numeric:tabular-nums}
+  .table-wrap .sub{color:var(--ink3);font-size:10.5px;font-weight:400}
+
+  .finding{display:flex;gap:10px;background:#f7f9ff;border:1px solid #e3e9ff;border-radius:10px;padding:11px 13px;margin-top:12px;font-size:11.5px;color:#33457c;line-height:1.7}
+  .finding b{color:#21356f;font-weight:750}
+  .finding .f-label{font-size:9.5px;font-weight:850;letter-spacing:.08em;color:var(--brand);white-space:nowrap;padding-top:1px}
+  .finding.warn{background:var(--warn-soft);border-color:#f5e3b3;color:#7a4d00}
+  .finding.warn b{color:#5f3a00}
+  .finding.warn .f-label{color:var(--warn)}
+
+  .chip{display:inline-flex;align-items:center;font-size:9.5px;font-weight:750;padding:2px 7px;border-radius:5px;white-space:nowrap}
+  .chip-red{background:var(--bad-soft);color:var(--bad)}
+  .chip-green{background:var(--good-soft);color:var(--good)}
+  .chip-yellow{background:var(--warn-soft);color:var(--warn)}
+  .chip-blue{background:var(--brand-soft);color:var(--brand)}
+  .chip-gray{background:#f1f3f8;color:#6b7488}
+  .chip-violet{background:var(--violet-soft);color:var(--violet)}
+
+  /* map table */
+  .map-table td:first-child{white-space:nowrap}
+  .map-table td:nth-child(2){min-width:230px}
+  .map-table td:nth-child(3){min-width:150px}
+  .map-table td:nth-child(4){min-width:120px}
+
+  /* scoring */
+  .crit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+  .crit{background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 11px}
+  .crit .k{font-size:9.5px;font-weight:850;color:var(--brand);letter-spacing:.06em}
+  .crit .v{font-size:11px;color:var(--ink2);margin-top:2px;line-height:1.55}
+  .score-table td:nth-child(2){min-width:150px}
+  .score-table td:nth-child(3),.score-table td:nth-child(4),.score-table td:nth-child(5),.score-table td:nth-child(6),.score-table td:nth-child(7),.score-table td:nth-child(8),.score-table td:nth-child(9),.score-table td:nth-child(10){text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .score-table th:nth-child(n+3){text-align:center}
+  .total{font-size:13px;font-weight:850;font-variant-numeric:tabular-nums}
+  .total.high{color:var(--good)}
+  .total.mid{color:var(--warn)}
+  .total.low{color:var(--bad)}
+  .veto{font-size:9px;color:var(--bad);font-weight:800;display:block;margin-top:1px}
+
+  /* opportunity cards */
+  .opp-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .opp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .opp.top{border-color:#c9d6ff;background:linear-gradient(180deg,#fff 0%,#fbfcff 100%)}
+  .opp-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+  .opp-rank{width:29px;height:29px;border-radius:8px;background:var(--ink);color:#fff;font-size:11px;font-weight:850;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .opp.top .opp-rank{background:var(--brand)}
+  .opp-title{font-size:17px;font-weight:780;letter-spacing:-.025em}
+  .opp-tag{font-size:10px;color:var(--ink3);margin-top:2px}
+  .opp-score{margin-left:auto;text-align:right;flex-shrink:0}
+  .opp-score .n{font-size:25px;font-weight:850;letter-spacing:-.03em;line-height:1;color:var(--good);font-variant-numeric:tabular-nums}
+  .opp-score .t{font-size:9.5px;color:var(--ink3);margin-top:2px}
+  .opp-body{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+  .opp-body p{font-size:12px;color:var(--ink2);line-height:1.75;margin-bottom:7px}
+  .opp-body p b{color:var(--ink);font-weight:700}
+  .opp-side{background:#fafbfe;border:1px solid var(--line2);border-radius:9px;padding:11px 13px;font-size:10.5px;color:var(--ink3);line-height:1.7}
+  .opp-side b{color:var(--ink2);font-weight:700}
+  .opp-side .row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line2)}
+  .opp-side .row:last-child{border-bottom:none}
+  .opp-side .row span:last-child{color:var(--ink);font-weight:650;text-align:right}
+
+  /* cut table */
+  .cut-table td:nth-child(2){text-align:center;font-weight:750}
+  .cut-table td:nth-child(3){min-width:260px}
+
+  /* plan */
+  .plan-hero{background:linear-gradient(135deg,#111827,#22305a);color:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 18px 48px -30px rgba(23,32,58,.7);margin-bottom:12px}
+  .plan-kicker{font-size:10.5px;font-weight:800;letter-spacing:.16em;color:#9db4ff;margin-bottom:9px}
+  .plan-hero h3{font-size:26px;font-weight:800;letter-spacing:-.035em;line-height:1.3;margin-bottom:8px}
+  .plan-hero p{font-size:13px;color:#c3cce0;line-height:1.75;max-width:800px}
+  .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+  .plan-cell{background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px 15px;box-shadow:var(--shadow)}
+  .plan-cell .k{font-size:9.5px;font-weight:850;letter-spacing:.08em;color:var(--brand);text-transform:uppercase;margin-bottom:5px}
+  .plan-cell .v{font-size:11.5px;color:var(--ink2);line-height:1.65}
+  .plan-cell .v b{color:var(--ink)}
+  .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+  .tl{padding:16px 16px 18px;border-right:1px solid var(--line2);position:relative}
+  .tl:last-child{border-right:none}
+  .tl .w{font-size:9.5px;font-weight:850;letter-spacing:.08em;color:var(--ink3);text-transform:uppercase}
+  .tl .h{font-size:12.5px;font-weight:750;margin:4px 0 5px;line-height:1.4}
+  .tl p{font-size:10.5px;color:var(--ink3);line-height:1.6}
+  .tl::before{content:"";position:absolute;left:16px;top:0;width:22px;height:3px;background:var(--brand);border-radius:0 0 3px 3px}
+  .risk-table td:nth-child(1){white-space:nowrap}
+  .risk-table td:nth-child(2){min-width:300px}
+
+  .proto{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);margin-top:12px}
+  .proto-shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#f3f5fa}
+  .proto-shot img{display:block;width:100%;height:auto}
+  .proto-info .k{font-size:9.5px;font-weight:850;letter-spacing:.1em;color:var(--good);text-transform:uppercase;margin-bottom:5px}
+  .proto-info h3{font-size:18px;font-weight:780;letter-spacing:-.025em;margin-bottom:6px}
+  .proto-info p{font-size:11.5px;color:var(--ink3);line-height:1.7;margin-bottom:10px}
+  .proto-info .checks{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--ink2)}
+  .proto-info .checks span::before{content:"✓";color:var(--good);font-weight:850;margin-right:6px}
+  .proto-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+  .btn{display:inline-flex;align-items:center;gap:6px;border-radius:8px;padding:8px 12px;font-size:11.5px;font-weight:700;border:1px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--brand);color:#fff}
+  .btn-primary:hover{background:var(--brand-ink);text-decoration:none}
+  .btn-ghost{background:#fff;border-color:var(--line);color:var(--ink2)}
+  .btn-ghost:hover{border-color:#cbd3e2;text-decoration:none}
+
+  /* evidence images */
+  .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .img-card{background:#fff;border:1px solid var(--line);border-radius:11px;overflow:hidden;box-shadow:var(--shadow)}
+  .img-card img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line2)}
+  .img-cap{padding:8px 11px;font-size:10px;color:var(--ink3);line-height:1.5}
+  .img-cap b{color:var(--ink2);font-weight:650}
+
+  /* method */
+  .method-table td:nth-child(1){white-space:nowrap}
+  .method-table td:nth-child(2){min-width:180px}
+  .method-table td:nth-child(4){min-width:230px}
+  .limit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+  .limit{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 14px;box-shadow:var(--shadow)}
+  .limit .k{font-size:9.5px;font-weight:850;letter-spacing:.08em;color:var(--bad);text-transform:uppercase;margin-bottom:4px}
+  .limit .v{font-size:11px;color:var(--ink2);line-height:1.65}
+  .unanswered{background:var(--warn-soft);border:1px solid #f5e3b3;border-radius:11px;padding:13px 15px;margin-top:12px;font-size:11.5px;color:#7a4d00;line-height:1.7}
+  .unanswered b{color:#5f3a00}
+
+  .foot{border-top:1px solid var(--line);margin-top:44px;padding:20px 0 40px;font-size:10.5px;color:var(--ink3);line-height:1.9}
+  .foot b{color:var(--ink2)}
+  .to-top{position:fixed;right:20px;bottom:20px;width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink2);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);font-size:15px;z-index:40}
+  .to-top:hover{color:var(--brand);text-decoration:none}
+
+  @media (max-width:900px){
+    .hero h1{font-size:32px}
+    .hero-stats{grid-template-columns:repeat(3,1fr)}
+    .summary-grid{grid-template-columns:repeat(2,1fr)}
+    .three-grid{grid-template-columns:1fr}
+    .bili-grid{grid-template-columns:1fr}
+    .source-stats{grid-template-columns:repeat(2,1fr)}
+    .crit-grid{grid-template-columns:repeat(2,1fr)}
+    .opp-body{grid-template-columns:1fr}
+    .plan-grid{grid-template-columns:repeat(2,1fr)}
+    .timeline{grid-template-columns:1fr 1fr}
+    .tl:nth-child(2){border-right:none}
+    .tl{border-bottom:1px solid var(--line2)}
+    .proto{grid-template-columns:1fr}
+    .img-grid{grid-template-columns:1fr}
+    .limit-grid{grid-template-columns:1fr}
+    .nav-links{display:none}
+  }
+  @media (max-width:560px){
+    .hero{padding-top:38px}
+    .hero h1{font-size:27px}
+    .hero-sub{font-size:13px}
+    .hero-stats{grid-template-columns:repeat(2,1fr)}
+    .hero-stat .n{font-size:21px}
+    .summary-main{font-size:18px}
+    .sec-head h2{font-size:20px}
+    .source-head{padding:15px 16px 12px}
+    .source-body{padding:13px 16px 16px}
+    .card-pad{padding:17px 16px}
+    .plan-grid,.timeline{grid-template-columns:1fr}
+    .tl{border-right:none}
+    .table-wrap table{min-width:640px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span class="brand-mark">A×G</span> AI × 游戏 / 机会调研</div>
+    <div class="nav-links">
+      <a href="#conclusion">结论</a>
+      <a href="#data">真实数据</a>
+      <a href="#map">环节地图</a>
+      <a href="#score">机会记分</a>
+      <a href="#picks">三个机会</a>
+      <a href="#cut">淘汰名单</a>
+      <a href="#plan">推荐方案</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-kicker">AI × GAME · OPPORTUNITY SCAN · 2026-11-21</div>
+    <h1>AI 在游戏里，<br>最确定的机会不在生成，<em>在验收</em>。</h1>
+    <p class="hero-sub">
+      扫描 B站、抖音小游戏、Product Hunt、HN Show HN、搜狗微信五个源之后，结论和直觉相反：
+      <b>「用 AI 做游戏」已经挤满</b>，从 Google 到 Meta 到一周三个的 AI game maker；
+      而<b>「用 AI 验收游戏」</b>——本地化 QA、玩家反馈归因、买量素材拆解——仍然靠人肉，
+      且这些环节的产出<b>不会进入玩家能看到的东西</b>，正好绕开游戏行业最敏感的 AI 抵制。
+    </p>
+    <div class="hero-meta">
+      <span><b>调研时间</b> 2026-11-21</span>
+      <span><b>数据源</b> 5 个</span>
+      <span><b>样本</b> 1,434 条 B站视频 · 166 个 PH 产品 · 115 条 HN Show HN · 99 条微信搜索结果</span>
+      <span><b>判据</b> 8 条 / 16 分</span>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="n">1,434</div><div class="t">B站视频（19 个关键词）</div></div>
+      <div class="hero-stat"><div class="n">166</div><div class="t">Product Hunt 产品</div></div>
+      <div class="hero-stat"><div class="n">115</div><div class="t">HN Show HN 游戏条目</div></div>
+      <div class="hero-stat"><div class="n">0</div><div class="t">抖音热门榜 AI-native 游戏</div></div>
+      <div class="hero-stat"><div class="n">9<small>个</small></div><div class="t">打分的机会方向</div></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section" id="conclusion">
+    <div class="sec-head"><span class="num">01</span><h2>结论先行</h2><span class="aside">如果只看一屏，看这里</span></div>
+    <div class="summary-card">
+      <div class="summary-label">ONE-LINE CONCLUSION</div>
+      <div class="summary-main">
+        做 <em>「出海 LQA 预检」</em>：把本地化 QA 从「提审前熬夜抽检」变成「每次导出后 3 分钟自动扫一遍」。<br>
+        输入是客户现成的文案表，输出是能直接改的问题清单，不碰玩家可见内容。
+      </div>
+      <div class="summary-sub">
+        它不是「又一个 AI 翻译」——翻译已经红海。它检查的是翻译之后、提审之前那一层：
+        占位符有没有错、UI 会不会溢出、术语有没有统一、中文有没有漏删。
+        这一层今天仍然靠人眼，而小团队通常直接跳过。
+      </div>
+      <div class="summary-grid">
+        <div><div class="n">15/16</div><div class="t">机会得分（8 条判据）</div></div>
+        <div><div class="n">10 类</div><div class="t">可自动检测的机械错误</div></div>
+        <div><div class="n">3 分钟</div><div class="t">原型扫描 114 条文案的耗时</div></div>
+        <div><div class="n">0</div><div class="t">需要玩家看到的 AI 内容</div></div>
+      </div>
+    </div>
+
+    <div class="three-grid">
+      <div class="point">
+        <div class="point-num">1</div>
+        <h3>生成侧已经挤满</h3>
+        <p>Product Hunt 近三个月出现 <b>10 个 AI 游戏生成/素材产品</b>；HN 上「Claude Code 建 Godot 游戏」337 分、「AI 写塔防」319 分。Google、Meta 都在做，个人没有壁垒。更麻烦的是玩家抵制：B站《一个土豆游戏，引爆独立开发者的 AI 噩梦》133 万播放。</p>
+      </div>
+      <div class="point">
+        <div class="point-num">2</div>
+        <h3>验收侧仍然人肉</h3>
+        <p>微信上最新、最密集的从业者讨论是本地化：<b>「小游戏本地化的三笔账」「600 个专有名词，AI 翻译能记住几个」「AI 说 bug 都修完了，我该相信他吗」</b>——全是 11 月的新文章。但 PH/HN 上几乎找不到对应的 LQA 工具。</p>
+      </div>
+      <div class="point">
+        <div class="point-num">3</div>
+        <h3>个人能切的是「文件进、结论出」</h3>
+        <p>不需要引擎集成、不需要爬虫、不需要买量数据。客户把导出的 CSV/JSON/XLIFF 给你，你返回一份按严重级别排序的体检报告。后端出身、会 JS/TS 的人，两周能做出 MVP。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data">
+    <div class="sec-head"><span class="num">02</span><h2>五个源，指向同一个空位</h2><span class="aside">数据抓取于 2026-11-21</span></div>
+    <p class="sec-intro">
+      这一节只放可复核的数字和原话。B站播放、抖音在线、PH 上新、HN 分数、微信文章，各自只说明一件事：
+      <b>注意力在哪、供给在哪、从业者在讨论什么</b>。它们都不是付费意愿的直接证据——所以最后会单独讲局限。
+    </p>
+
+    <!-- B站 -->
+    <div class="card source">
+      <div class="source-head">
+        <div class="source-ico ico-bili">B</div>
+        <div>
+          <div class="source-title">B站：AI 游戏是「内容」，不是「货架」</div>
+          <div class="source-sub">19 个关键词 · 1,434 条去重视频 · 按播放量排序 · Playwright + 本机 Chrome 复核 · 完整清单见 <a href="research/bili_merged.json">bili_merged.json</a></div>
+        </div>
+        <div class="source-badges">
+          <span class="src-badge">AI游戏开发 34/100 ≥50万</span>
+          <span class="src-badge">AI NPC 26/100 ≥50万</span>
+          <span class="src-badge">点击即玩 50/100 ≥50万</span>
+        </div>
+      </div>
+      <div class="source-body">
+        <div class="source-stats">
+          <div class="sstat"><div class="n">57<small>%</small></div><div class="t">AI游戏开发 2026 年发布占比</div></div>
+          <div class="sstat"><div class="n">35<small>%</small></div><div class="t">AI NPC 2026 年发布占比</div></div>
+          <div class="sstat"><div class="n good">98<small>%</small></div><div class="t">Bilibili Toy 2026 年发布占比</div></div>
+          <div class="sstat"><div class="n warn">3/100</div><div class="t">AI NPC 里「教程/工具」占比（标题粗筛）</div></div>
+        </div>
+        <div class="bili-grid">
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">AI 游戏开发 · 播放 Top 6</div><div class="mini-note">100 条中 34 条 ≥50 万</div></div>
+            <table><thead><tr><th>视频</th><th>播放</th><th>发布</th></tr></thead><tbody><tr><td class="title"><a href="https://www.bilibili.com/video/BV1sk4y1T761" target="_blank" rel="noopener">如何不写代码却能制作你人生中的第一个游戏</a></td><td class="num">1232.9万</td><td class="date">2023-06-30</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1hBLUz1EW3" target="_blank" rel="noopener">当我把学校做成了打丧尸游戏这画质已经接近现实卧槽！用AI做游戏自动建模学校 无人机获取场景…</a></td><td class="num">265.8万</td><td class="date">2025-04-28</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1TXn7zYEmL" target="_blank" rel="noopener">挂机游戏开发 —— 上班摸鱼游戏</a></td><td class="num">253.4万</td><td class="date">2025-09-27</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1fa7HzQEjZ" target="_blank" rel="noopener">一人团队开发游戏 —— 粉刷匠</a></td><td class="num">252.1万</td><td class="date">2025-05-31</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1uF57z7EJk" target="_blank" rel="noopener">16分钟游戏开发速成课 —— 愤怒的2048</a></td><td class="num">223.8万</td><td class="date">2025-04-19</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV16Ux46yEsR" target="_blank" rel="noopener">这还能是童年套圈机！？做成世界大赛！</a></td><td class="num">195.3万</td><td class="date">2026-11-01</td></tr></tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">AI NPC · 播放 Top 6</div><div class="mini-note">100 条中 26 条 ≥50 万</div></div>
+            <table><thead><tr><th>视频</th><th>播放</th><th>发布</th></tr></thead><tbody><tr><td class="title"><a href="https://www.bilibili.com/video/BV1GbFLzUEoM" target="_blank" rel="noopener">我叫momo，一个恋爱游戏的NPC |粉墨IF之《Ctrl Z》【B站AI创作大赛-开放赛…</a></td><td class="num">160.4万</td><td class="date">2026-02-03</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV174421o7KL" target="_blank" rel="noopener">AI队友都能听懂游戏黑话了？他们是如何做到的？【差评君】</a></td><td class="num">116.2万</td><td class="date">2024-08-24</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1yQ4y1S79W" target="_blank" rel="noopener">【不止游戏】我研究了上百个游戏的NPC，发现了它们隐藏的秘密</a></td><td class="num">96.9万</td><td class="date">2021-11-04</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1yW4y1o7fo" target="_blank" rel="noopener">【逆水寒】当你问NPC愿不愿意当你的狗</a></td><td class="num">83.6万</td><td class="date">2023-07-13</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1Fe4y1A78x" target="_blank" rel="noopener">还没玩上chatGPT？等等逆水寒手游就行了</a></td><td class="num">54.4万</td><td class="date">2023-02-15</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1uu411L7E8" target="_blank" rel="noopener">破案了：逆水寒手游根本没有智能AI，400个策划天天都在扮演NPC</a></td><td class="num">16.8万</td><td class="date">2023-07-13</td></tr></tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">点击即玩 · 播放 Top 6</div><div class="mini-note">100 条中 50 条 ≥50 万</div></div>
+            <table><thead><tr><th>视频</th><th>播放</th><th>发布</th></tr></thead><tbody><tr><td class="title"><a href="https://www.bilibili.com/video/BV1kNKU6REBg" target="_blank" rel="noopener">点击即玩世界上最爽的哈基米模拟器 【B站AI创造公开赛】</a></td><td class="num">340.8万</td><td class="date">2026-07-20</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV18jsA6xEft" target="_blank" rel="noopener">我把Windows10装进了哔哩哔哩里,点击即玩!【B站AI创造公开赛】</a></td><td class="num">301.0万</td><td class="date">2026-11-16</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1zPnxzMEHB" target="_blank" rel="noopener">休闲小游戏，点击即玩！【黑洞入侵005】</a></td><td class="num">265.6万</td><td class="date">2025-09-25</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1F94y167vZ" target="_blank" rel="noopener">我把“虚假广告”做成了真正不用下载，点击即玩的游戏！！！</a></td><td class="num">263.1万</td><td class="date">2023-08-27</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1MHnczSEvh" target="_blank" rel="noopener">休闲小游戏，点击即玩！【黑洞入侵213】</a></td><td class="num">249.7万</td><td class="date">2025-09-22</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1LA3uzaEnK" target="_blank" rel="noopener">丝柯克：点击即玩</a></td><td class="num">198.3万</td><td class="date">2025-07-03</td></tr></tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">Bilibili Toy · 播放 Top 6</div><div class="mini-note">100 条中 8 条 ≥50 万</div></div>
+            <table><thead><tr><th>视频</th><th>播放</th><th>发布</th></tr></thead><tbody><tr><td class="title"><a href="https://www.bilibili.com/video/BV1Hc866fEPY" target="_blank" rel="noopener">我把牛来做成了捏捏乐，捏急了会喊妈妈【Bilibili Toy】</a></td><td class="num">149.6万</td><td class="date">2026-08-22</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV13Ths6eEMC" target="_blank" rel="noopener">冰冰冰冲刺 点击即玩！！</a></td><td class="num">98.9万</td><td class="date">2026-09-23</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1s18Y61Eh5" target="_blank" rel="noopener">不用下载，点击立刻胆子肥嘟嘟的！【Bilibili Toy】</a></td><td class="num">85.5万</td><td class="date">2026-08-24</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1fm8K6bE8d" target="_blank" rel="noopener">不用下载，点击立即哈气，哈基米斗2.0！【Bilibili Toy】</a></td><td class="num">75.2万</td><td class="date">2026-08-21</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV11iaT6CE5f" target="_blank" rel="noopener">琵琶曲丨做成游戏会怎样？！！【Bilibili Toy】</a></td><td class="num">64.5万</td><td class="date">2026-09-25</td></tr>
+<tr><td class="title"><a href="https://www.bilibili.com/video/BV1Prpb67Evs" target="_blank" rel="noopener">再敲一下就收手！我做了个铸剑小游戏【Bilibili Toy】</a></td><td class="num">62.8万</td><td class="date">2026-10-09</td></tr></tbody></table>
+          </div>
+        </div>
+        <div class="finding">
+          <span class="f-label">读法</span>
+          <span><b>「AI游戏」「游戏AI」两个词的结果高度重叠，且被《蛋仔派对》和整活视频淹没；产品相关的有效切面是「AI游戏开发」，下面用它做表。</b>「AI 做游戏」有巨大的观看需求，但不是工具购买需求。AI游戏开发 Top 10 里 7 条是「一人团队 / 速成课 / 自动建模」的教程或过程展示；AI NPC 100 条里按标题粗筛只有 3 条是教程/工具，其余是剧情、电影解说、整活。<b>播放量证明的是「想看别人做」，不是「自己想买」。</b></span>
+        </div>
+        <div class="finding warn">
+          <span class="f-label">反证</span>
+          <span>AI NPC 区出现了一条 16.8 万播放的《破案了：逆水寒手游根本没有智能AI，400 个策划天天都在扮演NPC》。玩家对「AI NPC」的信任极其脆弱——<b>这也解释了为什么工具型 AI 必须躲在幕后。</b></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 抖音 -->
+    <div class="card source">
+      <div class="source-head">
+        <div class="source-ico ico-dy">抖</div>
+        <div>
+          <div class="source-title">抖音小游戏：热门榜前 20，没有一个 AI-native</div>
+          <div class="source-sub">https://www.douyin.com/microgame · 2026-11-21 12:05 · 登录弹窗关闭后抓取</div>
+        </div>
+        <div class="source-badges"><span class="src-badge">今日推荐在线人数</span><span class="src-badge">热门榜 / 畅销榜</span></div>
+      </div>
+      <div class="source-body">
+        <div class="source-stats">
+          <div class="sstat"><div class="n">42.4<small>万</small></div><div class="t">《甄嬛传：归来》同时在线</div></div>
+          <div class="sstat"><div class="n">19.8<small>万</small></div><div class="t">《灵画师》同时在线</div></div>
+          <div class="sstat"><div class="n">10.8<small>万</small></div><div class="t">《镇邪人》同时在线</div></div>
+          <div class="sstat"><div class="n bad">0</div><div class="t">热门榜 Top 20 中的 AI-native 游戏</div></div>
+        </div>
+        <div class="bili-grid">
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">今日推荐 · 在线人数</div><div class="mini-note">页面实时显示</div></div>
+            <table><thead><tr><th>游戏</th><th>在线</th><th>卖点</th></tr></thead><tbody>
+              <tr><td class="title">甄嬛传：归来</td><td class="num">42.4 万</td><td class="date">重回圆明园</td></tr>
+              <tr><td class="title">灵画师</td><td class="num">19.8 万</td><td class="date">包子下肚，修仙</td></tr>
+              <tr><td class="title">镇邪人</td><td class="num">10.8 万</td><td class="date">中式微恐搜打撤</td></tr>
+              <tr><td class="title">下方了</td><td class="num">7.5 万</td><td class="date">轻松抓鬼</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">热门榜 · Top 8</div><div class="mini-note">全榜无 AI-native</div></div>
+            <table><thead><tr><th>#</th><th>游戏</th><th>类型</th></tr></thead><tbody>
+              <tr><td class="date">1</td><td class="title">羊了个羊：星球</td><td class="date">消除</td></tr>
+              <tr><td class="date">2</td><td class="title">疯狂水世界</td><td class="date">模拟生存</td></tr>
+              <tr><td class="date">3</td><td class="title">肥鹅美食街</td><td class="date">合成</td></tr>
+              <tr><td class="date">4</td><td class="title">多乐升级</td><td class="date">棋牌</td></tr>
+              <tr><td class="date">5</td><td class="title">梦幻消除战</td><td class="date">消除</td></tr>
+              <tr><td class="date">6</td><td class="title">浪漫餐厅</td><td class="date">经营</td></tr>
+              <tr><td class="date">7</td><td class="title">象棋达人</td><td class="date">棋牌</td></tr>
+              <tr><td class="date">8</td><td class="title">甄嬛传：归来</td><td class="date">古风</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+        <div class="finding">
+          <span class="f-label">读法</span>
+          <span>抖音小游戏的头部仍然是<b>修仙、微恐、古风、消除、棋牌</b>。AI 没有作为一个品类出现；它更可能藏在素材生成、关卡调优、客服这些后台环节。<b>「AI 游戏」在 C 端不是卖点，甚至是负资产。</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="img-grid">
+      <div class="img-card">
+        <img src="assets/bili-ai-dev.png" alt="B站 AI游戏开发 搜索结果按播放排序">
+        <div class="img-cap"><b>B站实测：</b>搜索「AI游戏开发」，按最多播放排序；前 12 条里 7 条是教程/过程展示，最高 1232.8 万播放。</div>
+      </div>
+      <div class="img-card">
+        <img src="assets/douyin-microgame.png" alt="抖音小游戏中心热门榜">
+        <div class="img-cap"><b>抖音实测：</b>小游戏中心「今日推荐」显示实时在线；热门榜/畅销榜前 20 没有任何 AI-native 产品。</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="data2">
+    <!-- PH -->
+    <div class="card source">
+      <div class="source-head">
+        <div class="source-ico ico-ph">PH</div>
+        <div>
+          <div class="source-title">Product Hunt：三个月 10 个「AI 做游戏」，0 个「AI 验游戏」</div>
+          <div class="source-sub">games / AI / dev-tools / productivity 四个 feed · 166 个去重产品 · 2026-08 至 2026-11 · 完整清单见 <a href="research/ph_all.json">ph_all.json</a></div>
+        </div>
+        <div class="source-badges">
+          <span class="src-badge">30 个游戏相关</span>
+          <span class="src-badge">10 个 AI 生成/素材</span>
+          <span class="src-badge">4 个 AI NPC/陪伴</span>
+          <span class="src-badge" style="background:#fdeceb;color:#d92d20">0 个 LQA/QA/运营</span>
+        </div>
+      </div>
+      <div class="source-body">
+        <div class="source-stats">
+          <div class="sstat"><div class="n">166</div><div class="t">四个 feed 去重产品</div></div>
+          <div class="sstat"><div class="n">30</div><div class="t">游戏相关</div></div>
+          <div class="sstat"><div class="n bad">10</div><div class="t">AI 游戏生成/素材</div></div>
+          <div class="sstat"><div class="n good">0</div><div class="t">本地化 QA / 游戏 QA / 运营</div></div>
+        </div>
+        <div class="bili-grid">
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">「AI 做游戏」货架已经满了</div><div class="mini-note">10 个全列</div></div>
+            <table><thead><tr><th>产品</th><th>发布</th><th>一句话</th></tr></thead><tbody><tr><td class="title"><a href="https://www.producthunt.com/products/wispos" target="_blank" rel="noopener">WispOS</a></td><td class="date">11-16</td><td class="date">免费 AI 游戏制作器 + 应用商店</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/wanaka-studio/launches/wanaka-studio" target="_blank" rel="noopener">Wanaka Studio</a></td><td class="date">10-28</td><td class="date">号称第一个 AI 3D 游戏引擎</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/flockbay/launches/flockbay" target="_blank" rel="noopener">Flockbay</a></td><td class="date">11-02</td><td class="date">基于 Godot 的免费 AI 游戏制作器</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/mypip-2/launches/mypip-2" target="_blank" rel="noopener">myPip</a></td><td class="date">10-15</td><td class="date">vibe code、发布、变现</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/google-labs/launches/playground-by-google-labs" target="_blank" rel="noopener">Playground by Google Labs</a></td><td class="date">10-07</td><td class="date">Google 的 AI 做游戏/分享</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/wombo-the-ai-game-studio/launches/wombo-4" target="_blank" rel="noopener">Wombo</a></td><td class="date">09-17</td><td class="date">2D 素材/音效 AI 游戏工作室</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/pocket-by-meta/launches/pocket-by-meta" target="_blank" rel="noopener">Pocket by Meta</a></td><td class="date">08-20</td><td class="date">vibe-code 游戏，像 TikTok 一样分享</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/our-silly-games/launches/our-silly-games" target="_blank" rel="noopener">Our Silly Games</a></td><td class="date">10-27</td><td class="date">用 Claude 做游戏 + 免费多人托管</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/diiverge-co/launches/diiverge" target="_blank" rel="noopener">Diiverge</a></td><td class="date">09-07</td><td class="date">把任何图片变成可玩的 AI 冒险</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/studyquest/launches/studyquest" target="_blank" rel="noopener">StudyQuest</a></td><td class="date">10-06</td><td class="date">把笔记变成游戏</td></tr></tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">「AI 角色」也开始拥挤</div><div class="mini-note">节选 4 个</div></div>
+            <table><thead><tr><th>产品</th><th>发布</th><th>一句话</th></tr></thead><tbody><tr><td class="title"><a href="https://www.producthunt.com/products/humalike-2/launches/humalike-ai-npc" target="_blank" rel="noopener">Humalike - AI NPC</a></td><td class="date">09-01</td><td class="date">会聊、有记忆、能自主行动</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/willo-2" target="_blank" rel="noopener">Willo</a></td><td class="date">11-09</td><td class="date">陪你打 WoW 的 AI 伙伴</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/prelulu/launches/prelulu" target="_blank" rel="noopener">Prelulu</a></td><td class="date">10-31</td><td class="date">聊天/视频角色扮演</td></tr>
+<tr><td class="title"><a href="https://www.producthunt.com/products/mela-3/launches/mela-3" target="_blank" rel="noopener">Mela</a></td><td class="date">09-16</td><td class="date">和朋友 + AI 一起玩</td></tr></tbody></table>
+          </div>
+        </div>
+        <div class="finding">
+          <span class="f-label">读法</span>
+          <span>PH 的供给结构非常清楚：<b>所有人都想卖「生成」</b>——生成游戏、生成素材、生成 NPC。原因也简单：demo 好看、当天能发 PH、能讲「人人都能做游戏」的故事。<b>没人想卖「验收」</b>——它不酷、demo 是表格、但它是每个要出海的团队都必须做的事。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HN -->
+    <div class="card source">
+      <div class="source-head">
+        <div class="source-ico ico-hn">HN</div>
+        <div>
+          <div class="source-title">HN Show HN：生成拿 300 分，验收拿 1–6 分</div>
+          <div class="source-sub">Algolia API + 站内搜索 · 115 条去重游戏 Show HN · 仅代表开发者注意力，不代表付费意愿 · 完整清单见 <a href="research/hn_games.json">hn_games.json</a></div>
+        </div>
+        <div class="source-badges">
+          <span class="src-badge">115 条游戏 Show HN</span>
+          <span class="src-badge">18 条 AI 相关</span>
+          <span class="src-badge">最高 386 分</span>
+        </div>
+      </div>
+      <div class="source-body">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Show HN</th><th>分数</th><th>发布</th><th>类别</th></tr></thead>
+            <tbody><tr><td class="title"><a href="https://news.ycombinator.com/item?id=48308376" target="_blank" rel="noopener">Show HN: Continue? Y/N: A 60-second game about AI agent permi…</a></td><td class="num">386</td><td class="date">2026-05-28</td><td class="date">游戏（AI 主题）</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=47400868" target="_blank" rel="noopener">Show HN: Claude Code skills that build complete Godot games</a></td><td class="num">337</td><td class="date">2026-03-16</td><td class="date">生成</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=44463967" target="_blank" rel="noopener">Show HN: I AI-coded a tower defense game and documented the w…</a></td><td class="num">319</td><td class="date">2025-07-04</td><td class="date">生成</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=47149586" target="_blank" rel="noopener">Show HN: A real-time strategy game that AI agents can play</a></td><td class="num">220</td><td class="date">2026-02-25</td><td class="date">AI 玩法</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=44204181" target="_blank" rel="noopener">Show HN: AI game animation sprite generator</a></td><td class="num">162</td><td class="date">2025-06-06</td><td class="date">素材</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=50358352" target="_blank" rel="noopener">Show HN: Uncracked City, detective game where you question LL…</a></td><td class="num">129</td><td class="date">2026-11-03</td><td class="date">AI 玩法</td></tr></tbody>
+          </table>
+        </div>
+        <div class="mini-table" style="margin-top:12px">
+          <div class="mini-head"><div class="mini-title">同一个月里，「验收类」工具的 HN 分数</div><div class="mini-note">1–6 分，几乎无人讨论</div></div>
+          <table><thead><tr><th>Show HN</th><th>分数</th><th>发布</th><th>类别</th></tr></thead><tbody><tr><td class="title"><a href="https://news.ycombinator.com/item?id=50350444" target="_blank" rel="noopener">Show HN: Globalize.now – translations that land in your pull …</a></td><td class="num">6</td><td class="date">2026-11-03</td><td class="date">本地化</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=46462095" target="_blank" rel="noopener">Show HN: A small game localization tool for indie devs (built…</a></td><td class="num">2</td><td class="date">2026-01-02</td><td class="date">本地化</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=49475316" target="_blank" rel="noopener">Show HN: AI Game Playtester</a></td><td class="num">2</td><td class="date">2026-08-28</td><td class="date">QA</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=47273012" target="_blank" rel="noopener">Show HN: NeoMud – A multiplayer dungeon game with AI agents t…</a></td><td class="num">2</td><td class="date">2026-03-06</td><td class="date">QA</td></tr>
+<tr><td class="title"><a href="https://news.ycombinator.com/item?id=46636708" target="_blank" rel="noopener">Show HN: Turn Steam reviews into personas and insights, witho…</a></td><td class="num">1</td><td class="date">2026-01-15</td><td class="date">反馈</td></tr></tbody></table>
+        </div>
+        <div class="finding warn">
+          <span class="f-label">注意</span>
+          <span>HN 分数只说明「开发者想不想点开」，不是需求证据。这里用它只做一件事：<b>证明供给端的注意力严重偏向生成</b>。真正的需求要去微信/行业社群/客户访谈里找。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 微信 -->
+    <div class="card source">
+      <div class="source-head">
+        <div class="source-ico ico-wx">微</div>
+        <div>
+          <div class="source-title">搜狗微信：11 月还在被反复写的，是本地化</div>
+          <div class="source-sub">10 个关键词 · 每词最多 10 条 · 2026-11-21 抓取 · 正文被反爬拦截，只取标题与摘要 · 完整清单见 <a href="research/wechat_sogou.json">wechat_sogou.json</a> / <a href="research/wechat_ops.json">wechat_ops.json</a></div>
+        </div>
+        <div class="source-badges">
+          <span class="src-badge">99 条搜索结果</span>
+          <span class="src-badge">引用 6 篇本地化</span>
+          <span class="src-badge">引用 5 篇 QA</span>
+        </div>
+      </div>
+      <div class="source-body">
+        <div class="bili-grid">
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">本地化：成本、术语、信任</div><div class="mini-note">6 篇</div></div>
+            <table><thead><tr><th>标题</th><th>来源 / 时间</th></tr></thead><tbody><tr><td class="title">小游戏本地化的三笔账:AI 抹平第一笔,后两笔怎么省</td><td class="date">AI游戏工坊<br><span style="color:#a0a8b8">16小时前</span></td></tr>
+<tr><td class="title">小游戏本地化三层,AI 能替掉哪两步</td><td class="date">AI游戏工坊<br><span style="color:#a0a8b8">2026-11-8</span></td></tr>
+<tr><td class="title">游戏里造了600个专有名词,AI翻译能记住几个?</td><td class="date">游戏AI本地化翻译<br><span style="color:#a0a8b8">2026-11-11</span></td></tr>
+<tr><td class="title">AI告诉我游戏bug都修完了,我该相信他吗?</td><td class="date">游戏AI本地化翻译<br><span style="color:#a0a8b8">2天前</span></td></tr>
+<tr><td class="title">从“人力堆砌”到“智能协作”,游戏AI本地化翻译平台如何破解游戏出海的质量与成本困局?</td><td class="date">快出海<br><span style="color:#a0a8b8">2026-3-11</span></td></tr>
+<tr><td class="title">【福利】1000元抵扣券, 游戏出海本地化翻译:中小团队如何平衡专业度与成本?</td><td class="date">罗斯基<br><span style="color:#a0a8b8">2026-3-4</span></td></tr></tbody></table>
+          </div>
+          <div class="mini-table">
+            <div class="mini-head"><div class="mini-title">QA：大厂已经在改流程</div><div class="mini-note">5 篇</div></div>
+            <table><thead><tr><th>标题</th><th>来源 / 时间</th></tr></thead><tbody><tr><td class="title">让 AI 扮演玩家测游戏:一套新的 QA 方法</td><td class="date">软件测试培训<br><span style="color:#a0a8b8">1天前</span></td></tr>
+<tr><td class="title">网易:AI改了测试和程序两道工序,现在要什么样能力的人</td><td class="date">小王讲科技热点<br><span style="color:#a0a8b8">2天前</span></td></tr>
+<tr><td class="title">专访维塔士QA总监Gao:参与全流程开发,高标准保证游戏质量</td><td class="date">维塔士<br><span style="color:#a0a8b8">2023-7-27</span></td></tr>
+<tr><td class="title">基于公司职级体系浅谈游戏QA发展路径</td><td class="date">不安分的小QA<br><span style="color:#a0a8b8">2023-4-12</span></td></tr>
+<tr><td class="title">Anthropic 工程师实测:让AI自己写代码、自己做QA,6小时造出一个完整游戏引擎</td><td class="date">AI掘金师<br><span style="color:#a0a8b8">2026-3-30</span></td></tr></tbody></table>
+          </div>
+        </div>
+        <div class="finding">
+          <span class="f-label">读法</span>
+          <span>四个主关键词（AI游戏 / 游戏AI工具 / AI NPC / AI 游戏开发）也各扫了 10 条：前两个多是工具盘点，AI NPC 多是概念/厂商，AI 游戏开发多是教程——<b>只有本地化/QA 出现连续、具体、带成本数字的新文章</b>。本地化文章的关键词不是「怎么翻」，而是<b>「第一笔 AI 抹平了，后两笔怎么省」「600 个专有名词 AI 能记住几个」「AI 说 bug 都修完了，我该相信他吗」</b>——这说明翻译本身已经不是瓶颈，<b>验收和术语一致性才是</b>。而「玩家评论分析」搜出来的还是 2016–2018 年的老文章，说明这个需求没有被工具化，或者从业者根本不在微信讨论。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="sec-head"><span class="num">03</span><h2>环节地图：哪一段还是人肉</h2><span class="aside">按游戏研发/发行流程拆</span></div>
+    <p class="sec-intro">
+      把「AI × 游戏」拆成 11 个环节，逐个看：<b>今天谁在做、AI 渗透到哪、个人开发者能不能切</b>。
+      结论是——越靠近「生成」，越红；越靠近「验收」，越空。
+    </p>
+    <div class="table-wrap">
+      <table class="map-table">
+        <thead><tr><th>环节</th><th>今天谁在做</th><th>AI 渗透</th><th>个人可切入</th><th>判断</th></tr></thead>
+        <tbody>
+          <tr><td>立项 / 市场分析</td><td>DataEye、Sensor Tower 等数据平台；小团队手工看榜</td><td>低</td><td>数据成本高</td><td><span class="chip chip-gray">观望</span></td></tr>
+          <tr><td>原型 / 代码</td><td>Copilot、Claude、Codex；大厂自研</td><td>高</td><td>红海</td><td><span class="chip chip-red">不做</span></td></tr>
+          <tr><td>美术 / 动画 / 音频</td><td>Wombo、Sprite Generator、外包；大厂内部管线</td><td>高</td><td>红海 + 玩家抵制</td><td><span class="chip chip-red">不做</span></td></tr>
+          <tr><td>关卡 / 数值</td><td>策划 Excel + 自研工具；咨询顾问</td><td>低</td><td>难验证</td><td><span class="chip chip-gray">观望</span></td></tr>
+          <tr><td>本地化翻译</td><td>Crowdin / Lokalise + MT；外包翻译公司</td><td>高</td><td>翻译红海</td><td><span class="chip chip-red">不做</span></td></tr>
+          <tr><td><b>本地化 QA</b></td><td>大厂内部 LQA 团队 / 外包；小团队直接跳过</td><td><b>低</b></td><td><b>文件进、结论出</b></td><td><span class="chip chip-green">机会</span></td></tr>
+          <tr><td>QA / 测试</td><td>网易、腾讯 WeTest；AI 试玩新方法刚出现</td><td>中</td><td>需引擎集成</td><td><span class="chip chip-yellow">不硬碰</span></td></tr>
+          <tr><td>买量素材</td><td>DataEye、SocialPeta；人工拉片 / 外包</td><td>中</td><td>数据壁垒</td><td><span class="chip chip-yellow">备选</span></td></tr>
+          <tr><td><b>玩家反馈 / 舆情</b></td><td>大厂自研 / WeTest 舆情；小团队手工翻评论</td><td><b>低</b></td><td><b>评论进、问题出</b></td><td><span class="chip chip-yellow">备选</span></td></tr>
+          <tr><td>资产 / 包体</td><td>UBP 等商业工具；自研脚本</td><td>低</td><td>非 AI，已有竞品</td><td><span class="chip chip-blue">兜底</span></td></tr>
+          <tr><td>LiveOps / 客服</td><td>大厂客服系统；通用 SaaS</td><td>中</td><td>红海</td><td><span class="chip chip-red">不做</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="three-grid" style="margin-top:12px">
+      <div class="point"><div class="point-num">A</div><h3>纯人工，今天还在发生</h3><p>本地化 QA、玩家反馈归因、资产/包体体检、数值验收。共同点：<b>输入是客户现成文件，输出是验收结论</b>，但小团队没有专职的人。</p></div>
+      <div class="point"><div class="point-num">B</div><h3>大厂已经占住</h3><p>AI 试玩/QA（网易、腾讯 WeTest）、AI NPC 运行时（Inworld、Convai、NVIDIA ACE）、AI 生成（Google、Meta）。个人硬碰是拿鸡蛋撞石头。</p></div>
+      <div class="point"><div class="point-num">C</div><h3>没人做的小空白</h3><p>出海 LQA 预检、版本反馈归因、买量素材拆解（SMB 版）。共同点：<b>不碰玩家可见内容、不需要引擎集成、客户能自己拍板</b>。</p></div>
+    </div>
+
+    <div class="finding">
+      <span class="f-label">结论</span>
+      <span><b>纯人工、且大厂没有向下覆盖的，只剩两段：本地化 QA、玩家反馈归因。</b>QA/测试虽然也痛，但网易/腾讯已经把 AI 试玩做成平台能力，个人硬碰是拿鸡蛋撞石头；买量素材有数据壁垒；资产体检不是 AI，且 UBP 等已经占了。</span>
+    </div>
+  </section>
+
+  <section class="section" id="score">
+    <div class="sec-head"><span class="num">04</span><h2>机会记分：同一把尺子，量 9 个方向</h2><span class="aside">8 条判据 · 每条 0–2 分 · 满分 16</span></div>
+    <p class="sec-intro">
+      判据不是拍脑袋：前 7 条来自对真实在营产品的拆解——输入是否脏、输出是不是结论、替用户跳过了哪一步、
+      有没有给出「怎么办」、客户能不能自己拍板、有没有死线、有没有天然传播。第 8 条是给个人开发者的硬约束：
+      <b>边际成本能不能降、能不能自助购买、能不能沉淀资产</b>。第 8 条 0 分直接否决。
+    </p>
+
+    <div class="crit-grid">
+      <div class="crit"><div class="k">01 脏输入</div><div class="v">照片、表格、多语言文案、评论区——越脏越有得做。</div></div>
+      <div class="crit"><div class="k">02 结论 or 素材</div><div class="v">输出能直接用，还是用户还要再加工一遍。</div></div>
+      <div class="crit"><div class="k">03 跳过一步</div><div class="v">必须是「这一步不用做了」，不是「快一点」。</div></div>
+      <div class="crit"><div class="k">04 给出怎么办</div><div class="v">只诊断不处方，用户还得自己想。</div></div>
+      <div class="crit"><div class="k">05 客户能拍板</div><div class="v">制作人 / 主程 / 主美能直接决定，不走采购。</div></div>
+      <div class="crit"><div class="k">06 时间压力</div><div class="v">提审、版本更新、投放测试、差评爆发。</div></div>
+      <div class="crit"><div class="k">07 传播机制</div><div class="v">成绩可晒、报告可转发、同行可比。</div></div>
+      <div class="crit"><div class="k">08 规模化</div><div class="v">边际成本低 / 自助购买 / 沉淀资产；0 分否决。</div></div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="score-table">
+        <thead>
+          <tr><th>#</th><th>机会</th><th>01</th><th>02</th><th>03</th><th>04</th><th>05</th><th>06</th><th>07</th><th>08</th><th>总分</th><th>判断</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td><b>出海 LQA 预检</b><div class="sub">本地化文案自动体检</div></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>2</td><td><span class="total high">15</span></td><td><span class="chip chip-green">推荐</span></td></tr>
+          <tr><td>2</td><td><b>版本反馈归因</b><div class="sub">玩家评论 → 问题清单</div></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>2</td><td><span class="total high">15</span></td><td><span class="chip chip-green">备选 #2</span></td></tr>
+          <tr><td>3</td><td><b>买量素材拆解</b><div class="sub">竞品广告 → 可测试的 hook</div></td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td><span class="total high">15</span></td><td><span class="chip chip-yellow">备选 #3</span></td></tr>
+          <tr><td>4</td><td><b>AI NPC 对话回归</b><div class="sub">LLM NPC 的人设/设定一致性测试</div></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>2</td><td>1</td><td>2</td><td><span class="total mid">14</span></td><td><span class="chip chip-gray">TAM 太小</span></td></tr>
+          <tr><td>5</td><td><b>AI 试玩 / QA 报告</b><div class="sub">AI 扮演玩家，产出 bug/体验报告</div></td><td>2</td><td>2</td><td>2</td><td>2</td><td>1</td><td>2</td><td>1</td><td>1</td><td><span class="total mid">13</span></td><td><span class="chip chip-red">需集成</span></td></tr>
+          <tr><td>6</td><td><b>AI NPC 运行时</b><div class="sub">可对话、有记忆的 NPC 引擎</div></td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>1</td><td>2</td><td>2</td><td><span class="total mid">12</span></td><td><span class="chip chip-red">大厂战场</span></td></tr>
+          <tr><td>7</td><td><b>AI 美术 / 动画</b><div class="sub">2D 素材、精灵图、动画生成</div></td><td>1</td><td>1</td><td>2</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td><span class="total mid">11</span></td><td><span class="chip chip-red">红海 + 抵制</span></td></tr>
+          <tr><td>8</td><td><b>AI 陪玩 / 教练</b><div class="sub">陪你打、教你怎么打</div></td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td>0</td><td>2</td><td>2</td><td><span class="total mid">11</span></td><td><span class="chip chip-gray">C 端留存</span></td></tr>
+          <tr><td>9</td><td><b>AI 游戏生成器</b><div class="sub">一句话生成可玩游戏</div></td><td>1</td><td>1</td><td>2</td><td>1</td><td>1</td><td>0</td><td>2</td><td>2</td><td><span class="total low">10</span></td><td><span class="chip chip-red">红海 + 无壁垒</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="finding warn" style="margin-bottom:8px">
+      <span class="f-label">门槛之外</span>
+      <span>10 分只是「值得看」，不是「值得做」。<b>AI 游戏生成器刚好 10 分，但对手是 Google / Meta 和一周三个的同类</b>，第 8 条再高也赢不了。本轮 9 个方向的第 8 条都 ≥1 分，没有触发一票否决；真正被淘汰的是「分数够、但打不过大厂或玩家抵制」。</span>
+    </div>
+
+    <div class="finding">
+      <span class="f-label">并列怎么破</span>
+      <span>1、2、3 都是 15 分。按「数据获取成本」和「交付确定性」破并列：<b>LQA 的输入是客户现成文件</b>，不需要爬虫/买数据；<b>反馈归因要拿评论</b>，来源分散；<b>买量拆解要拿广告库</b>，数据成本和合规风险最高。所以顺序是 1 &gt; 2 &gt; 3。</span>
+    </div>
+  </section>
+
+  <section class="section" id="picks">
+    <div class="sec-head"><span class="num">05</span><h2>三个高分机会，逐个拆</h2><span class="aside">只拆 15 分的三个</span></div>
+
+    <div class="opp-grid">
+      <article class="opp top">
+        <div class="opp-head">
+          <div class="opp-rank">1</div>
+          <div>
+            <div class="opp-title">出海 LQA 预检</div>
+            <div class="opp-tag">本地化文案的「提审前体检」 · 推荐做</div>
+          </div>
+          <div class="opp-score"><div class="n">15</div><div class="t">/ 16</div></div>
+        </div>
+        <div class="opp-body">
+          <div>
+            <p><b>做什么：</b>客户把导出的文案表（CSV / JSON / XLIFF）拖进来，工具逐条检查：占位符是否一致、富文本标签是否闭合、目标语言是否为空/仍是中文、UI 长度是否溢出、术语是否统一、标点/空格是否合规。输出是按严重级别排序的问题清单，每条带「为什么是问题」和「怎么改」，能自动改的直接一键修。</p>
+            <p><b>谁买：</b>2–20 人的出海小游戏 / 独立游戏团队。已经有翻译（MT + 人工），但没有专职 LQA；每次提审前靠主策/运营熬夜抽查。制作人/发行负责人能直接拍板，不需要采购流程。</p>
+            <p><b>为什么是现在：</b>微信上 11 月连续出现「AI 抹平第一笔，后两笔怎么省」「600 个专有名词 AI 能记住几个」「AI 说 bug 都修完了，我该相信他吗」——<b>翻译已经被 AI 解决，验收没有</b>。而 PH/HN 上没有一个对应的工具，供给是空的。</p>
+            <p><b>证据链：</b>微信 6 篇本地化文章（2026-11 最新 16 小时前）→ 小团队在算「后两笔」的钱；HN 上「small game localization tool」只有 2 分、「Globalize.now」6 分 → 不是红海；PH 166 个产品里 0 个 LQA → 供给空白。</p>
+          </div>
+          <div class="opp-side">
+            <div class="row"><span>输入</span><span>客户现成文案表</span></div>
+            <div class="row"><span>输出</span><span>问题清单 + 修复</span></div>
+            <div class="row"><span>跳过</span><span>人工逐条 LQA</span></div>
+            <div class="row"><span>死线</span><span>提审 / 版本更新</span></div>
+            <div class="row"><span>规模</span><span>SaaS / CLI，自助</span></div>
+            <div class="row"><span>风险</span><span>Crowdin 内置 QA 下压</span></div>
+            <div style="margin-top:8px;color:#33457c"><b>最适合一个人起步：</b>不用引擎、不用爬虫、不用买数据；后端 + JS/TS 两周能出 MVP。</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="opp">
+        <div class="opp-head">
+          <div class="opp-rank">2</div>
+          <div>
+            <div class="opp-title">版本反馈归因</div>
+            <div class="opp-tag">玩家评论 → 版本问题清单 · 备选 #2</div>
+          </div>
+          <div class="opp-score"><div class="n">15</div><div class="t">/ 16</div></div>
+        </div>
+        <div class="opp-body">
+          <div>
+            <p><b>做什么：</b>把 TapTap / Steam / 小红书 / 抖音评论导进来，按版本、机型、关卡聚类，输出「这个版本新增的 Top 问题 + 证据原话 + 建议先修哪个」。核心不是情感分析，而是<b>版本归因</b>：哪些差评是这次更新引入的，哪些是老问题。</p>
+            <p><b>为什么高分：</b>输入极脏（反讽、缩写、重复、水军），输出是结论，跳过「人工翻几百条评论」，制作人能直接拍板，版本更新有死线，SaaS 可规模化。</p>
+            <p><b>为什么排 #2：</b>门槛低，通用 AI 评论分析工具会向下挤压；评论数据来源分散，小团队未必愿意把后台数据交出来。差异化只能是「版本 × 机型 × 关卡」的归因，不是「情感饼图」。</p>
+          </div>
+          <div class="opp-side">
+            <div class="row"><span>输入</span><span>评论 / 客服工单</span></div>
+            <div class="row"><span>输出</span><span>版本问题排行</span></div>
+            <div class="row"><span>跳过</span><span>人工翻评论</span></div>
+            <div class="row"><span>死线</span><span>版本更新 / 差评爆发</span></div>
+            <div class="row"><span>规模</span><span>SaaS，按项目</span></div>
+            <div class="row"><span>风险</span><span>通用 AI 工具挤压</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="opp">
+        <div class="opp-head">
+          <div class="opp-rank">3</div>
+          <div>
+            <div class="opp-title">买量素材拆解</div>
+            <div class="opp-tag">竞品广告 → 可测试的 hook · 备选 #3</div>
+          </div>
+          <div class="opp-score"><div class="n">15</div><div class="t">/ 16</div></div>
+        </div>
+        <div class="opp-body">
+          <div>
+            <p><b>做什么：</b>输入竞品的小游戏广告（视频/图片），输出「前 3 秒 hook、核心卖点、CTA、可复用的结构」，并给出 3 个可测试的改写方向。客户是买量/发行，时间压力是投放测试，传播性最强（素材本身可晒）。</p>
+            <p><b>为什么高分：</b>输入脏（视频/图片）、输出是结论、跳过人工拉片、给出怎么办、买量负责人能拍板、投放有死线、素材天然传播、SaaS 可规模化。</p>
+            <p><b>为什么排 #3：</b>数据是壁垒——要持续抓竞品广告库，成本和合规风险都高；DataEye/SocialPeta 已经占住企业市场。个人开发者只能从「小游戏 + 单个品类」切，先做服务再做产品。</p>
+          </div>
+          <div class="opp-side">
+            <div class="row"><span>输入</span><span>竞品广告视频/图</span></div>
+            <div class="row"><span>输出</span><span>hook 拆解 + 改写</span></div>
+            <div class="row"><span>跳过</span><span>人工拉片</span></div>
+            <div class="row"><span>死线</span><span>投放测试</span></div>
+            <div class="row"><span>规模</span><span>数据成本随覆盖上升</span></div>
+            <div class="row"><span>风险</span><span>广告库数据/合规</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="cut">
+    <div class="sec-head"><span class="num">06</span><h2>淘汰的，以及为什么</h2><span class="aside">不是「不好」，是「不适合一个人」</span></div>
+    <p class="sec-intro">
+      下面这些方向都有真实需求，但要么被大厂占住，要么需要数据/资本/引擎集成，要么玩家对 AI 的抵制会直接反噬产品。
+      按「个人开发者 + 后端/JS + 想做出增长」这三个条件，逐个排除。
+    </p>
+    <div class="table-wrap">
+      <table class="cut-table">
+        <thead><tr><th>方向</th><th>分数</th><th>为什么不做 / 暂缓</th><th>证据</th></tr></thead>
+        <tbody>
+          <tr><td><b>AI 游戏生成器</b></td><td>10</td><td>PH 近三个月 10 个同类；Google、Meta 亲自下场；没有壁垒，最后拼的是模型和流量。且生成的游戏一旦被玩家闻到 AI 味，直接抵制。</td><td>WispOS、Wanaka、Flockbay、Playground、Pocket by Meta；HN 337 / 319 分；B站《一个土豆游戏》133 万播放</td></tr>
+          <tr><td><b>AI 美术 / 动画</b></td><td>11</td><td>Wombo、Sprite Generator 已经把「2D 素材」做成货架；大厂内部管线更成熟。更致命的是玩家抵制——AI 美术是玩家最容易识别的部分。</td><td>HN「AI game animation sprite generator」162 分；B站《当 AI 开始影响游戏工作室》80 万播放</td></tr>
+          <tr><td><b>AI NPC 运行时</b></td><td>12</td><td>Inworld、Convai、NVIDIA ACE 已经占住「会聊天、有记忆」的叙事；Humalike 这类产品也在 PH 上。个人做不了延迟、成本、角色一致性三件事。</td><td>PH Humalike - AI NPC（2026-09）；微信《AI NPC：实现通用人工智能的必由之路？》；B站 AI NPC 内容 160 万播放</td></tr>
+          <tr><td><b>AI 陪玩 / 教练</b></td><td>11</td><td>PH 上 Willo、Prelulu、Mela 已经在做「陪你玩/陪你演」；C 端留存难、平台 ToS 风险高、没有明确死线。可以做，但不是一个人第一年该做的。</td><td>PH Willo（2026-11-09）、Prelulu（2026-10-31）、Mela（2026-09-16）</td></tr>
+          <tr><td><b>AI 试玩 / QA 平台</b></td><td>13</td><td>网易、腾讯 WeTest 已经把 AI 测试做成平台能力；每个项目还要接引擎、写用例、做回归。个人只能做「轻量报告」，做不成平台。</td><td>微信《网易：AI 改了测试和程序两道工序》《让 AI 扮演玩家测游戏》；HN「AI Game Playtester」2 分</td></tr>
+          <tr><td><b>AI NPC 对话回归</b></td><td>14</td><td>分数高，但 TAM 太小：今天真正上线 LLM NPC 的团队屈指可数。等这个市场成熟，大厂/Inworld 自己就会做 eval。暂缓，不是淘汰。</td><td>HN「NeoMud … AI agents that QA and playtest」2 分；PH 只有 Humalike 一个 AI NPC 平台</td></tr>
+          <tr><td><b>包体资源体检</b><span class="chip chip-blue" style="margin-left:6px">非 AI</span></td><td>15</td><td>上一轮已经验证过：微信小游戏 4M 硬限制、资源冗余普遍、检查项可枚举。但 UBP 等商业工具已经存在，AI 增量有限；作为「不碰 AI」的兜底方案保留。</td><td>微信小游戏 4M 限制；UBP 资源检查；上一轮《游戏方向细分调研》</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="finding warn">
+      <span class="f-label">一条铁律</span>
+      <span>凡是「玩家能看到」的 AI 产出，都要默认会被抵制：<b>AI 美术、AI 剧情、AI 配音、AI NPC 的「假智能」</b>。工具型产品必须把 AI 放在幕后，输出是报告、是清单、是修复建议——<b>玩家永远不知道你用了 AI，这才是能长期做的位置。</b></span>
+    </div>
+  </section>
+
+  <section class="section" id="plan">
+    <div class="sec-head"><span class="num">07</span><h2>推荐方案：出海 LQA 预检</h2><span class="aside">从「能做什么」到「第一周做什么」</span></div>
+    <div class="plan-hero">
+      <div class="plan-kicker">THE PICK · 15/16</div>
+      <h3>把「提审前熬夜抽查」变成「导出后 3 分钟体检」。</h3>
+      <p>
+        不做翻译、不做生成、不做 NPC。只做翻译之后、提审之前的那一层验收：
+        占位符、漏译、中文残留、术语、UI 溢出、标点空格。输入是客户现成的文案表，输出是能直接改的清单。
+        一个人、两周、纯前端 + 一个后端解析服务就能跑通。
+      </p>
+    </div>
+
+    <div class="plan-grid">
+      <div class="plan-cell"><div class="k">ICP</div><div class="v"><b>2–20 人</b>的出海小游戏 / 独立游戏团队；已有翻译，没有专职 LQA；每 1–2 个月一次版本提审。</div></div>
+      <div class="plan-cell"><div class="k">痛点</div><div class="v">提审前没人逐条检查；UI 溢出/占位符/术语不一致只有玩家发现；外包 LQA 按字数收费，小团队请不起全量。</div></div>
+      <div class="plan-cell"><div class="k">产品</div><div class="v">CSV/JSON/XLIFF 导入 → 规则引擎 + 术语表 +（生产版）LLM 语境检查 → 问题清单 + 一键修复 + 提审报告。</div></div>
+      <div class="plan-cell"><div class="k">商业模式</div><div class="v">按项目订阅：Free 1 语言 500 条；Pro <b>99–299 元/月/项目</b>；Team <b>999 元/月</b>。定价是假设，先用 3 个试点验证。</div></div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl"><div class="w">WEEK 1</div><div class="h">访谈 + 拿真数据</div><p>找 5 个出海小团队，问「上次提审前谁在查文案、查了多久、漏过什么」。拿到 3 份真实文案表。</p></div>
+      <div class="tl"><div class="w">WEEK 2</div><div class="h">做 MVP</div><p>CSV/JSON 导入 + 5 类检查 + 报告导出。用真实项目跑通，记录「扫出多少条、多少是真问题」。</p></div>
+      <div class="tl"><div class="w">WEEK 3</div><div class="h">免费试点</div><p>2 个团队免费跑一次提审。指标：扫出 ≥10 条真问题、人工复核从 4 小时降到 40 分钟。</p></div>
+      <div class="tl"><div class="w">WEEK 4</div><div class="h">定价 / 转向</div><p>试探付费；如果没人愿意付，转 #2 版本反馈归因，复用同一套「文件进、结论出」的引擎。</p></div>
+    </div>
+
+    <div class="plan-grid" style="margin-top:12px">
+      <div class="plan-cell"><div class="k">GTM 1</div><div class="v">出海社群 / 微信小游戏开发者群，发「免费提审体检」：上传文案表，24 小时返回报告。</div></div>
+      <div class="plan-cell"><div class="k">GTM 2</div><div class="v">B站 AI 游戏开发 UP 主（英雄哪里出来、田同学Tino 这类）做「提审翻车实录」内容，评论区放工具。</div></div>
+      <div class="plan-cell"><div class="k">GTM 3</div><div class="v">独立游戏展会/Game Jam 做「出海文案急诊」，现场扫 20 条，当场出报告。</div></div>
+      <div class="plan-cell"><div class="k">Moat</div><div class="v">术语表 + 风格指南 + 项目历史 + 每次提审报告，越用越准；规则库覆盖各平台 UI 限制。</div></div>
+    </div>
+
+    <div class="table-wrap" style="margin-top:12px">
+      <table class="risk-table">
+        <thead><tr><th>风险</th><th>怎么应对</th></tr></thead>
+        <tbody>
+          <tr><td><b>Crowdin / Lokalise 内置 QA 下压</b></td><td>它们服务「翻译流程」，你服务「提审前最后一公里」；先做它们不支持的格式（小游戏 JSON、Unity CSV、自制表）和「一键修复」。</td></tr>
+          <tr><td><b>客户觉得「DeepL 免费」</b></td><td>不卖翻译，卖「漏译/溢出/术语」的验收；用一次真实提审的翻车案例做对比，而不是讲 AI 能力。</td></tr>
+          <tr><td><b>文件格式太杂</b></td><td>第一版只支持 CSV/JSON 长表；XLIFF/Unity 用「上传样例→我们适配」的服务方式接，不一开始做全。</td></tr>
+          <tr><td><b>LLM 成本 / 不稳定</b></td><td>机械检查全部规则化，LLM 只做「语气/语境」的可选增强；关掉 LLM 也能跑，这是原型的做法。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="proto">
+      <div class="proto-shot"><img src="assets/prototype-overview.png" alt="LQA Radar 原型截图"></div>
+      <div class="proto-info">
+        <div class="k">RUNNABLE PROTOTYPE · 已实测</div>
+        <h3>LQA Radar · 出海文案体检</h3>
+        <p>纯前端、零依赖、不调用付费 API。内置 114 条三语文案（38 个 key × EN/JA/KO），故意埋了 10 类真实问题：占位符、漏译、中文残留、术语不一致、UI 溢出、富文本/标点/空格。</p>
+        <div class="checks">
+          <span>Playwright 实测：0 page error · 0 console error</span>
+          <span>扫描 114 条 → 32 个问题，可上线度 71/100</span>
+          <span>支持 CSV 导入、严重级别/语言筛选、一键修复、Markdown 报告导出</span>
+        </div>
+        <div class="proto-actions">
+          <a class="btn btn-primary" href="prototype/index.html">打开原型 →</a>
+          <a class="btn btn-ghost" href="prototype/shots/03-glossary.png">看术语表截图</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="unanswered" style="margin-top:12px">
+      <b>如果只能做一件事：</b>不要先写代码。先找 3 个最近一次提审被文案问题卡过的团队，把他们上次的文案表要过来，用人工跑一遍这 10 类检查，记录「扫出多少条、他们认不认」。<b>这一步决定这个方向成不成立，比任何调研都重要。</b>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="sec-head"><span class="num">08</span><h2>方法与局限</h2><span class="aside">哪些能信，哪些不能</span></div>
+    <div class="table-wrap">
+      <table class="method-table">
+        <thead><tr><th>数据源</th><th>怎么抓</th><th>样本</th><th>不能说明什么</th></tr></thead>
+        <tbody>
+          <tr><td>B站</td><td>搜索 API + Playwright 本机 Chrome；<code>order=click</code>；2026-11-21</td><td>19 个关键词，1,434 条去重视频</td><td>播放量 = 内容注意力，不等于工具付费意愿</td></tr>
+          <tr><td>抖音小游戏</td><td>microgame 页面实时抓取；关闭登录弹窗</td><td>今日推荐 4 款 + 热门/畅销榜各 20</td><td>在线人数是页面展示值，不是留存/收入</td></tr>
+          <tr><td>Product Hunt</td><td>官方 RSS feed（games / AI / dev-tools / productivity）</td><td>166 个去重产品，2026-08 至 11</td><td>上新 = 供给，不等于有人付钱</td></tr>
+          <tr><td>HN Show HN</td><td>Algolia API + 站内搜索</td><td>115 条游戏 Show HN，18 条 AI 相关</td><td>分数 = 开发者注意力，不是需求证据</td></tr>
+          <tr><td>搜狗微信</td><td>weixin.sogou.com；10 个关键词 · 99 条结果</td><td>99 条结果（标题 + 摘要）</td><td>正文被反爬拦截；标题可能夸大</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="limit-grid">
+      <div class="limit"><div class="k">不当作证据</div><div class="v">GitHub 星数、B站播放、HN 分数、PH 上新数量——这些都只是注意力/供给信号，不能单独证明「有人愿意付钱」。</div></div>
+      <div class="limit"><div class="k">没有做的</div><div class="v">没有客户访谈、没有付费测试、没有拿到真实项目的文案表。所有定价和 ICP 都是假设，必须用 3 个试点验证。</div></div>
+      <div class="limit"><div class="k">时间窗口</div><div class="v">数据抓取于 2026-11-21；B站/抖音/PH 的榜单会变。这份报告是「此刻的快照」，不是长期结论。</div></div>
+    </div>
+
+    <div class="unanswered">
+      <b>还没回答的四个问题：</b>
+      ① 小团队真的愿意为「提审前体检」单独付钱，还是会觉得「翻译公司应该包」？
+      ② 他们的文案表到底长什么样——CSV、Excel、Unity、还是自研后台？格式适配成本有多高？
+      ③ 规则能覆盖多少真问题？如果 80% 的问题都要 LLM 判断语境，成本和准确率是否成立？
+      ④ 获客靠社群/UP 主/展会，哪个渠道能稳定带来前 10 个付费客户？
+    </div>
+  </section>
+
+  <div class="foot">
+    <div><b>AI × 游戏 · 机会调研</b> · 2026-11-21 · 数据源：B站 / 抖音小游戏 / Product Hunt / HN Show HN / 搜狗微信</div>
+    <div>方法：先全量扫，再用同一套 8 条判据筛；不提前缩范围，不用 star 数当需求证据，不把播放量当付费意愿。</div>
+    <div>原型：<a href="prototype/index.html">LQA Radar</a> · 纯前端 / 零依赖 / 0 console error · 生产版可接 LLM 做语境检查</div>
+  </div>
+</main>
+
+<a class="to-top" href="#" aria-label="回到顶部">↑</a>
+</body>
+</html>
+
+
+
+
+
+
+
+
