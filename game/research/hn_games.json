@@ -1,0 +1,1357 @@
+{
+ "game": [
+  {
+   "title": "Show HN: A game where you build a GPU",
+   "points": 964,
+   "comments": 187,
+   "author": "Jaso1024",
+   "date": "2026-04-04",
+   "url": "https://jaso1024.com/mvidia/",
+   "hn": "https://news.ycombinator.com/item?id=47640728"
+  },
+  {
+   "title": "Show HN: I made a memory game to teach you to play piano by ear",
+   "points": 565,
+   "comments": 171,
+   "author": "vunderba",
+   "date": "2026-01-09",
+   "url": "https://lend-me-your-ears.specr.net",
+   "hn": "https://news.ycombinator.com/item?id=46556210"
+  },
+  {
+   "title": "Show HN: Gaming Couch – a local multiplayer party game platform for 8 players",
+   "points": 437,
+   "comments": 121,
+   "author": "ChaosOp",
+   "date": "2025-12-21",
+   "url": "https://gamingcouch.com",
+   "hn": "https://news.ycombinator.com/item?id=46344573"
+  },
+  {
+   "title": "Show HN: Continue? Y/N: A 60-second game about AI agent permission fatigue",
+   "points": 386,
+   "comments": 162,
+   "author": "Wirbelwind",
+   "date": "2026-05-28",
+   "url": "https://llmgame.scalex.dev",
+   "hn": "https://news.ycombinator.com/item?id=48308376"
+  },
+  {
+   "title": "Show HN: Claude Code skills that build complete Godot games",
+   "points": 337,
+   "comments": 205,
+   "author": "htdt",
+   "date": "2026-03-16",
+   "url": "https://github.com/htdt/godogen",
+   "hn": "https://news.ycombinator.com/item?id=47400868"
+  },
+  {
+   "title": "Show HN: Putt.day a daily mini golf game",
+   "points": 320,
+   "comments": 112,
+   "author": "ellg",
+   "date": "2026-06-12",
+   "url": "https://putt.day/",
+   "hn": "https://news.ycombinator.com/item?id=48510341"
+  },
+  {
+   "title": "Show HN: I'm making a detective game built on Wikipedia",
+   "points": 318,
+   "comments": 43,
+   "author": "jasonsmiles",
+   "date": "2025-10-17",
+   "url": "https://detective.wiki/",
+   "hn": "https://news.ycombinator.com/item?id=45617948"
+  },
+  {
+   "title": "Show HN: PS2 games statically recompiled to WebAssembly",
+   "points": 316,
+   "comments": 159,
+   "author": "deadxwarrior",
+   "date": "2026-10-12",
+   "url": "https://github.com/snuri00/ps2-web-recomp",
+   "hn": "https://news.ycombinator.com/item?id=50052251"
+  },
+  {
+   "title": "Show HN: Number Gacha, a gacha game distilled to its essence",
+   "points": 268,
+   "comments": 143,
+   "author": "babel16",
+   "date": "2026-05-13",
+   "url": "https://isabisabel.com/gacha/",
+   "hn": "https://news.ycombinator.com/item?id=48123359"
+  },
+  {
+   "title": "Show HN: An 8-bit live gamecast for baseball",
+   "points": 260,
+   "comments": 140,
+   "author": "brownrout",
+   "date": "2026-06-17",
+   "url": "https://ribbie.tv/watch",
+   "hn": "https://news.ycombinator.com/item?id=48573012"
+  },
+  {
+   "title": "Show HN: To Honor Sir Patrick Stewart, Enjoy the TNG Episode Guessing Game",
+   "points": 245,
+   "comments": 81,
+   "author": "francisofascii",
+   "date": "2026-10-30",
+   "url": "https://tng.episodle.com/",
+   "hn": "https://news.ycombinator.com/item?id=50311686"
+  },
+  {
+   "title": "Show HN: Gerrymandle - Daily puzzle game where you redraw electoral districts",
+   "points": 244,
+   "comments": 77,
+   "author": "realmofthemad",
+   "date": "2026-06-18",
+   "url": "https://gerrymandle.cc/",
+   "hn": "https://news.ycombinator.com/item?id=48585739"
+  },
+  {
+   "title": "Show HN: Homegames. An open-source game platform I've been making for 8 years",
+   "points": 229,
+   "comments": 56,
+   "author": "homegamesjoseph",
+   "date": "2026-07-05",
+   "url": "https://homegames.io",
+   "hn": "https://news.ycombinator.com/item?id=48798153"
+  },
+  {
+   "title": "Show HN: A real-time strategy game that AI agents can play",
+   "points": 220,
+   "comments": 78,
+   "author": "__cayenne__",
+   "date": "2026-02-25",
+   "url": "https://llmskirmish.com/",
+   "hn": "https://news.ycombinator.com/item?id=47149586"
+  },
+  {
+   "title": "Show HN: I reverse-engineered the world maps of Test Drive III (1990 DOS game)",
+   "points": 215,
+   "comments": 56,
+   "author": "s-macke",
+   "date": "2026-05-31",
+   "url": "https://github.com/s-macke/Test-Drive-3-Maps",
+   "hn": "https://news.ycombinator.com/item?id=48344327"
+  },
+  {
+   "title": "Show HN: Decomp Academy – Learn to decompile GameCube games into matching C",
+   "points": 197,
+   "comments": 78,
+   "author": "jackpriceburns",
+   "date": "2026-06-28",
+   "url": "https://decomp-academy.dev",
+   "hn": "https://news.ycombinator.com/item?id=48703412"
+  },
+  {
+   "title": "Show HN: Stacked Game of Life",
+   "points": 195,
+   "comments": 27,
+   "author": "vnglst",
+   "date": "2026-02-28",
+   "url": "https://stacked-game-of-life.koenvangilst.nl/",
+   "hn": "https://news.ycombinator.com/item?id=47197218"
+  },
+  {
+   "title": "Show HN: Unflip – a puzzle game about XOR patterns of squares",
+   "points": 184,
+   "comments": 56,
+   "author": "bogdanoff_2",
+   "date": "2025-11-11",
+   "url": "https://unflipgame.com/",
+   "hn": "https://news.ycombinator.com/item?id=45891066"
+  },
+  {
+   "title": "Show HN: Play abstract strategy board games online with friends or against bots",
+   "points": 180,
+   "comments": 87,
+   "author": "abstractbg",
+   "date": "2025-10-16",
+   "url": "https://abstractboardgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=45609478"
+  },
+  {
+   "title": "Show HN: A terminal-native idle factory game, written in Rust with ratatui",
+   "points": 173,
+   "comments": 44,
+   "author": "snipedbywifi",
+   "date": "2026-11-14",
+   "url": "https://gitlab.com/snipedbywifi/terminactory",
+   "hn": "https://news.ycombinator.com/item?id=50497132"
+  },
+  {
+   "title": "Show HN: Automatically detect and patch walking-dead states in Sierra games",
+   "points": 161,
+   "comments": 97,
+   "author": "wkfauna",
+   "date": "2026-08-19",
+   "url": "https://github.com/katiahayati/lucasartsifier/",
+   "hn": "https://news.ycombinator.com/item?id=49355607"
+  },
+  {
+   "title": "Show HN: Faceoff – A terminal UI for following NHL games",
+   "points": 136,
+   "comments": 47,
+   "author": "vcf",
+   "date": "2026-04-19",
+   "url": "https://www.vincentgregoire.com/faceoff/",
+   "hn": "https://news.ycombinator.com/item?id=47826104"
+  },
+  {
+   "title": "Show HN: Uncracked City, detective game where you question LLM suspects that lie",
+   "points": 129,
+   "comments": 76,
+   "author": "passkey1510",
+   "date": "2026-11-03",
+   "url": "https://uncracked.city",
+   "hn": "https://news.ycombinator.com/item?id=50358352"
+  },
+  {
+   "title": "Show HN: Learn German with Games",
+   "points": 127,
+   "comments": 106,
+   "author": "predictand",
+   "date": "2025-10-29",
+   "url": "https://www.learngermanwithgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=45745566"
+  },
+  {
+   "title": "Show HN: I built a refinery simulator game to explain job to my kids",
+   "points": 127,
+   "comments": 55,
+   "author": "fuelingcurious",
+   "date": "2026-03-11",
+   "url": "https://fuelingcuriosity.com/game.html",
+   "hn": "https://news.ycombinator.com/item?id=47338091"
+  },
+  {
+   "title": "Show HN: Wonderhop – A daily game: guess what most people say, or what none do",
+   "points": 124,
+   "comments": 98,
+   "author": "mtlduo",
+   "date": "2026-10-13",
+   "url": "https://wonderhop.io/en/",
+   "hn": "https://news.ycombinator.com/item?id=50080246"
+  },
+  {
+   "title": "Show HN: C# Game Engine with its own scripting language and IDE",
+   "points": 118,
+   "comments": 64,
+   "author": "am-gm",
+   "date": "2026-08-11",
+   "url": "https://github.com/ArcadeMakerSources/ArcadeMaker",
+   "hn": "https://news.ycombinator.com/item?id=49258085"
+  },
+  {
+   "title": "Show HN: Ghanaian street games you can play in the browser",
+   "points": 117,
+   "comments": 22,
+   "author": "samuelaidoo45",
+   "date": "2026-11-08",
+   "url": "https://www.ghanastreetgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=50414117"
+  },
+  {
+   "title": "Show HN: A competition for small neural networks that play strategy games",
+   "points": 116,
+   "comments": 41,
+   "author": "codetiger",
+   "date": "2026-09-20",
+   "url": "https://tinybrains.dev",
+   "hn": "https://news.ycombinator.com/item?id=49776523"
+  },
+  {
+   "title": "Show HN: Moon simulator game, ray-casting",
+   "points": 114,
+   "comments": 25,
+   "author": "JKCalhoun",
+   "date": "2026-04-06",
+   "url": "https://mooncraft2000.com",
+   "hn": "https://news.ycombinator.com/item?id=47663743"
+  }
+ ],
+ "games": [
+  {
+   "title": "Show HN: A game where you build a GPU",
+   "points": 964,
+   "comments": 187,
+   "author": "Jaso1024",
+   "date": "2026-04-04",
+   "url": "https://jaso1024.com/mvidia/",
+   "hn": "https://news.ycombinator.com/item?id=47640728"
+  },
+  {
+   "title": "Show HN: I made a memory game to teach you to play piano by ear",
+   "points": 565,
+   "comments": 171,
+   "author": "vunderba",
+   "date": "2026-01-09",
+   "url": "https://lend-me-your-ears.specr.net",
+   "hn": "https://news.ycombinator.com/item?id=46556210"
+  },
+  {
+   "title": "Show HN: Gaming Couch – a local multiplayer party game platform for 8 players",
+   "points": 437,
+   "comments": 121,
+   "author": "ChaosOp",
+   "date": "2025-12-21",
+   "url": "https://gamingcouch.com",
+   "hn": "https://news.ycombinator.com/item?id=46344573"
+  },
+  {
+   "title": "Show HN: Continue? Y/N: A 60-second game about AI agent permission fatigue",
+   "points": 386,
+   "comments": 162,
+   "author": "Wirbelwind",
+   "date": "2026-05-28",
+   "url": "https://llmgame.scalex.dev",
+   "hn": "https://news.ycombinator.com/item?id=48308376"
+  },
+  {
+   "title": "Show HN: Claude Code skills that build complete Godot games",
+   "points": 337,
+   "comments": 205,
+   "author": "htdt",
+   "date": "2026-03-16",
+   "url": "https://github.com/htdt/godogen",
+   "hn": "https://news.ycombinator.com/item?id=47400868"
+  },
+  {
+   "title": "Show HN: Putt.day a daily mini golf game",
+   "points": 320,
+   "comments": 112,
+   "author": "ellg",
+   "date": "2026-06-12",
+   "url": "https://putt.day/",
+   "hn": "https://news.ycombinator.com/item?id=48510341"
+  },
+  {
+   "title": "Show HN: I'm making a detective game built on Wikipedia",
+   "points": 318,
+   "comments": 43,
+   "author": "jasonsmiles",
+   "date": "2025-10-17",
+   "url": "https://detective.wiki/",
+   "hn": "https://news.ycombinator.com/item?id=45617948"
+  },
+  {
+   "title": "Show HN: PS2 games statically recompiled to WebAssembly",
+   "points": 316,
+   "comments": 159,
+   "author": "deadxwarrior",
+   "date": "2026-10-12",
+   "url": "https://github.com/snuri00/ps2-web-recomp",
+   "hn": "https://news.ycombinator.com/item?id=50052251"
+  },
+  {
+   "title": "Show HN: Number Gacha, a gacha game distilled to its essence",
+   "points": 268,
+   "comments": 143,
+   "author": "babel16",
+   "date": "2026-05-13",
+   "url": "https://isabisabel.com/gacha/",
+   "hn": "https://news.ycombinator.com/item?id=48123359"
+  },
+  {
+   "title": "Show HN: To Honor Sir Patrick Stewart, Enjoy the TNG Episode Guessing Game",
+   "points": 245,
+   "comments": 81,
+   "author": "francisofascii",
+   "date": "2026-10-30",
+   "url": "https://tng.episodle.com/",
+   "hn": "https://news.ycombinator.com/item?id=50311686"
+  },
+  {
+   "title": "Show HN: Gerrymandle - Daily puzzle game where you redraw electoral districts",
+   "points": 244,
+   "comments": 77,
+   "author": "realmofthemad",
+   "date": "2026-06-18",
+   "url": "https://gerrymandle.cc/",
+   "hn": "https://news.ycombinator.com/item?id=48585739"
+  },
+  {
+   "title": "Show HN: Homegames. An open-source game platform I've been making for 8 years",
+   "points": 229,
+   "comments": 56,
+   "author": "homegamesjoseph",
+   "date": "2026-07-05",
+   "url": "https://homegames.io",
+   "hn": "https://news.ycombinator.com/item?id=48798153"
+  },
+  {
+   "title": "Show HN: A real-time strategy game that AI agents can play",
+   "points": 220,
+   "comments": 78,
+   "author": "__cayenne__",
+   "date": "2026-02-25",
+   "url": "https://llmskirmish.com/",
+   "hn": "https://news.ycombinator.com/item?id=47149586"
+  },
+  {
+   "title": "Show HN: I reverse-engineered the world maps of Test Drive III (1990 DOS game)",
+   "points": 215,
+   "comments": 56,
+   "author": "s-macke",
+   "date": "2026-05-31",
+   "url": "https://github.com/s-macke/Test-Drive-3-Maps",
+   "hn": "https://news.ycombinator.com/item?id=48344327"
+  },
+  {
+   "title": "Show HN: Decomp Academy – Learn to decompile GameCube games into matching C",
+   "points": 197,
+   "comments": 78,
+   "author": "jackpriceburns",
+   "date": "2026-06-28",
+   "url": "https://decomp-academy.dev",
+   "hn": "https://news.ycombinator.com/item?id=48703412"
+  },
+  {
+   "title": "Show HN: Stacked Game of Life",
+   "points": 195,
+   "comments": 27,
+   "author": "vnglst",
+   "date": "2026-02-28",
+   "url": "https://stacked-game-of-life.koenvangilst.nl/",
+   "hn": "https://news.ycombinator.com/item?id=47197218"
+  },
+  {
+   "title": "Show HN: Unflip – a puzzle game about XOR patterns of squares",
+   "points": 184,
+   "comments": 56,
+   "author": "bogdanoff_2",
+   "date": "2025-11-11",
+   "url": "https://unflipgame.com/",
+   "hn": "https://news.ycombinator.com/item?id=45891066"
+  },
+  {
+   "title": "Show HN: Play abstract strategy board games online with friends or against bots",
+   "points": 180,
+   "comments": 87,
+   "author": "abstractbg",
+   "date": "2025-10-16",
+   "url": "https://abstractboardgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=45609478"
+  },
+  {
+   "title": "Show HN: A terminal-native idle factory game, written in Rust with ratatui",
+   "points": 173,
+   "comments": 44,
+   "author": "snipedbywifi",
+   "date": "2026-11-14",
+   "url": "https://gitlab.com/snipedbywifi/terminactory",
+   "hn": "https://news.ycombinator.com/item?id=50497132"
+  },
+  {
+   "title": "Show HN: Automatically detect and patch walking-dead states in Sierra games",
+   "points": 161,
+   "comments": 97,
+   "author": "wkfauna",
+   "date": "2026-08-19",
+   "url": "https://github.com/katiahayati/lucasartsifier/",
+   "hn": "https://news.ycombinator.com/item?id=49355607"
+  },
+  {
+   "title": "Show HN: Faceoff – A terminal UI for following NHL games",
+   "points": 136,
+   "comments": 47,
+   "author": "vcf",
+   "date": "2026-04-19",
+   "url": "https://www.vincentgregoire.com/faceoff/",
+   "hn": "https://news.ycombinator.com/item?id=47826104"
+  },
+  {
+   "title": "Show HN: Uncracked City, detective game where you question LLM suspects that lie",
+   "points": 129,
+   "comments": 76,
+   "author": "passkey1510",
+   "date": "2026-11-03",
+   "url": "https://uncracked.city",
+   "hn": "https://news.ycombinator.com/item?id=50358352"
+  },
+  {
+   "title": "Show HN: Learn German with Games",
+   "points": 127,
+   "comments": 106,
+   "author": "predictand",
+   "date": "2025-10-29",
+   "url": "https://www.learngermanwithgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=45745566"
+  },
+  {
+   "title": "Show HN: I built a refinery simulator game to explain job to my kids",
+   "points": 127,
+   "comments": 55,
+   "author": "fuelingcurious",
+   "date": "2026-03-11",
+   "url": "https://fuelingcuriosity.com/game.html",
+   "hn": "https://news.ycombinator.com/item?id=47338091"
+  },
+  {
+   "title": "Show HN: Wonderhop – A daily game: guess what most people say, or what none do",
+   "points": 124,
+   "comments": 98,
+   "author": "mtlduo",
+   "date": "2026-10-13",
+   "url": "https://wonderhop.io/en/",
+   "hn": "https://news.ycombinator.com/item?id=50080246"
+  },
+  {
+   "title": "Show HN: C# Game Engine with its own scripting language and IDE",
+   "points": 118,
+   "comments": 64,
+   "author": "am-gm",
+   "date": "2026-08-11",
+   "url": "https://github.com/ArcadeMakerSources/ArcadeMaker",
+   "hn": "https://news.ycombinator.com/item?id=49258085"
+  },
+  {
+   "title": "Show HN: Ghanaian street games you can play in the browser",
+   "points": 117,
+   "comments": 22,
+   "author": "samuelaidoo45",
+   "date": "2026-11-08",
+   "url": "https://www.ghanastreetgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=50414117"
+  },
+  {
+   "title": "Show HN: A competition for small neural networks that play strategy games",
+   "points": 116,
+   "comments": 41,
+   "author": "codetiger",
+   "date": "2026-09-20",
+   "url": "https://tinybrains.dev",
+   "hn": "https://news.ycombinator.com/item?id=49776523"
+  },
+  {
+   "title": "Show HN: Moon simulator game, ray-casting",
+   "points": 114,
+   "comments": 25,
+   "author": "JKCalhoun",
+   "date": "2026-04-06",
+   "url": "https://mooncraft2000.com",
+   "hn": "https://news.ycombinator.com/item?id=47663743"
+  },
+  {
+   "title": "Show HN: Pyxel – A Python retro game engine with built-in art and sound editors",
+   "points": 107,
+   "comments": 11,
+   "author": "kitao",
+   "date": "2026-10-01",
+   "url": "https://github.com/kitao/pyxel",
+   "hn": "https://news.ycombinator.com/item?id=49928215"
+  }
+ ],
+ "puzzle": [
+  {
+   "title": "Show HN: Got sick of ads, so I made my own logic puzzle site",
+   "points": 251,
+   "comments": 167,
+   "author": "HaxleRose",
+   "date": "2026-06-22",
+   "url": "https://puzzlelair.com/",
+   "hn": "https://news.ycombinator.com/item?id=48629213"
+  },
+  {
+   "title": "Show HN: Gerrymandle - Daily puzzle game where you redraw electoral districts",
+   "points": 244,
+   "comments": 77,
+   "author": "realmofthemad",
+   "date": "2026-06-18",
+   "url": "https://gerrymandle.cc/",
+   "hn": "https://news.ycombinator.com/item?id=48585739"
+  },
+  {
+   "title": "Show HN: Unflip – a puzzle game about XOR patterns of squares",
+   "points": 184,
+   "comments": 56,
+   "author": "bogdanoff_2",
+   "date": "2025-11-11",
+   "url": "https://unflipgame.com/",
+   "hn": "https://news.ycombinator.com/item?id=45891066"
+  },
+  {
+   "title": "Show HN: The Last Complication, a Zachtronics-style watchmaking puzzle game",
+   "points": 89,
+   "comments": 21,
+   "author": "tdeangelis",
+   "date": "2026-11-15",
+   "url": "https://lastcomplication.com/",
+   "hn": "https://news.ycombinator.com/item?id=50511718"
+  },
+  {
+   "title": "Show HN: GeneGuessr – a daily biology web puzzle",
+   "points": 88,
+   "comments": 20,
+   "author": "brinedew",
+   "date": "2025-12-23",
+   "url": "https://geneguessr.brinedew.bio/",
+   "hn": "https://news.ycombinator.com/item?id=46363870"
+  },
+  {
+   "title": "Show HN: A 45x45 Connections Puzzle To Commemorate 2025=45*45",
+   "points": 79,
+   "comments": 39,
+   "author": "thomaswc",
+   "date": "2025-12-24",
+   "url": "https://thomaswc.com/2025.html",
+   "hn": "https://news.ycombinator.com/item?id=46371486"
+  },
+  {
+   "title": "Show HN: Corporate Mind Games – logic puzzles with a sarcastic corporate theme",
+   "points": 50,
+   "comments": 15,
+   "author": "dontwordle",
+   "date": "2026-08-31",
+   "url": "https://corporatemindgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=49511400"
+  },
+  {
+   "title": "Show HN: Stop playing my matchstick puzzles, start building your own in seconds",
+   "points": 37,
+   "comments": 35,
+   "author": "trangram",
+   "date": "2026-05-02",
+   "url": "https://mathstick.github.io",
+   "hn": "https://news.ycombinator.com/item?id=47983485"
+  },
+  {
+   "title": "Show HN: FuseCells – a handcrafted logic puzzle game with 2,500 levels",
+   "points": 37,
+   "comments": 24,
+   "author": "keini",
+   "date": "2025-12-06",
+   "url": "https://apps.apple.com/us/app/fusecells-logic-grid-puzzle/id6754704139",
+   "hn": "https://news.ycombinator.com/item?id=46177737"
+  },
+  {
+   "title": "Show HN: Three Emojis, a daily word puzzle for language learners",
+   "points": 33,
+   "comments": 28,
+   "author": "knuckleheads",
+   "date": "2025-11-07",
+   "url": "https://threeemojis.com/en-US/play/hex/en-US/2025-11-07",
+   "hn": "https://news.ycombinator.com/item?id=45850125"
+  },
+  {
+   "title": "Show HN: Build your own Bracket City puzzle",
+   "points": 32,
+   "comments": 8,
+   "author": "brgross",
+   "date": "2025-10-31",
+   "url": "https://builder.bracket.city",
+   "hn": "https://news.ycombinator.com/item?id=45772650"
+  },
+  {
+   "title": "Show HN: Reviving a 20-year-old puzzle game Chromatron with Ghidra and AI",
+   "points": 28,
+   "comments": 9,
+   "author": "stared",
+   "date": "2026-03-07",
+   "url": "https://quesma.com/blog/chromatron-recompiled/",
+   "hn": "https://news.ycombinator.com/item?id=47287259"
+  },
+  {
+   "title": "Show HN: Starglyphs - A constellation puzzle game based on Euler paths",
+   "points": 28,
+   "comments": 7,
+   "author": "telman17",
+   "date": "2026-06-27",
+   "url": "https://starglyphs.com",
+   "hn": "https://news.ycombinator.com/item?id=48702104"
+  },
+  {
+   "title": "Show HN: I built a dual crossword puzzle where two crosswords share one grid",
+   "points": 20,
+   "comments": 16,
+   "author": "daveoshawrus",
+   "date": "2026-04-27",
+   "url": "https://forkle.co.uk/",
+   "hn": "https://news.ycombinator.com/item?id=47920007"
+  },
+  {
+   "title": "Show HN: A puzzle I couldn't solve for a year – cubers cracked it in an hour",
+   "points": 18,
+   "comments": 17,
+   "author": "Pawel_SkimmIQ",
+   "date": "2026-08-21",
+   "url": "https://skimmiq.com/pt/",
+   "hn": "https://news.ycombinator.com/item?id=49390993"
+  },
+  {
+   "title": "Show HN: Amaze Kings – a browser logic puzzle with 1,400 hand-graded levels",
+   "points": 17,
+   "comments": 2,
+   "author": "amaze-apps-com",
+   "date": "2026-09-05",
+   "url": "https://kings.amaze-apps.com/",
+   "hn": "https://news.ycombinator.com/item?id=49578046"
+  },
+  {
+   "title": "Show HN: Jointter – A daily word puzzle using dots and lines",
+   "points": 15,
+   "comments": 32,
+   "author": "proy87",
+   "date": "2026-10-31",
+   "url": "https://www.jointter.com/",
+   "hn": "https://news.ycombinator.com/item?id=50317548"
+  },
+  {
+   "title": "Show HN: CrossPlay - Games, puzzles and tools for your e-reader",
+   "points": 14,
+   "comments": 0,
+   "author": "ma-r-s",
+   "date": "2026-08-07",
+   "url": "https://crossplay.ma-r-s.com",
+   "hn": "https://news.ycombinator.com/item?id=49217068"
+  },
+  {
+   "title": "Show HN: Tiled Words, a daily puzzle inspired by board games and crosswords",
+   "points": 13,
+   "comments": 12,
+   "author": "paulhebert",
+   "date": "2025-10-29",
+   "url": "https://tiledwords.com/",
+   "hn": "https://news.ycombinator.com/item?id=45750789"
+  },
+  {
+   "title": "Show HN: Wirespan, a daily power grid optimization puzzle I made for my son",
+   "points": 12,
+   "comments": 7,
+   "author": "dualarte",
+   "date": "2026-08-25",
+   "url": "https://wirespan.app/?r=hnn",
+   "hn": "https://news.ycombinator.com/item?id=49433314"
+  },
+  {
+   "title": "Show HN: Searching for optimal strategies in a puzzle game with chance (Drop7)",
+   "points": 12,
+   "comments": 4,
+   "author": "primitivesuave",
+   "date": "2026-10-23",
+   "url": "https://drop7.dev",
+   "hn": "https://news.ycombinator.com/item?id=50212292"
+  },
+  {
+   "title": "Show HN: Skub – a sliding puzzle browser game",
+   "points": 11,
+   "comments": 6,
+   "author": "kasperstorgaard",
+   "date": "2026-03-24",
+   "url": "https://skub.app",
+   "hn": "https://news.ycombinator.com/item?id=47506958"
+  },
+  {
+   "title": "Show HN: Matchstick Puzzle Game in the Browser",
+   "points": 11,
+   "comments": 2,
+   "author": "prettyblocks",
+   "date": "2025-12-29",
+   "url": "https://matchmath.pages.dev/",
+   "hn": "https://news.ycombinator.com/item?id=46417514"
+  },
+  {
+   "title": "Show HN: The Daily Set – an (over engineered) daily puzzle game",
+   "points": 10,
+   "comments": 6,
+   "author": "adamsvystun",
+   "date": "2026-09-01",
+   "url": "https://setpuzzle.com/",
+   "hn": "https://news.ycombinator.com/item?id=49527856"
+  },
+  {
+   "title": "Show HN: Purple Word – A new word puzzle game",
+   "points": 10,
+   "comments": 5,
+   "author": "gentlyenvy",
+   "date": "2026-02-06",
+   "url": "https://purpleword.com",
+   "hn": "https://news.ycombinator.com/item?id=46910764"
+  },
+  {
+   "title": "Show HN: Daily Set Puzzle – I rebuilt it after setgame.com's SSL cert expired",
+   "points": 10,
+   "comments": 2,
+   "author": "anniegracehu",
+   "date": "2025-12-19",
+   "url": "https://www.anniehu.com/set/",
+   "hn": "https://news.ycombinator.com/item?id=46321706"
+  },
+  {
+   "title": "Show HN: My daily word puzzle Jointter revisited",
+   "points": 9,
+   "comments": 8,
+   "author": "proy87",
+   "date": "2026-11-09",
+   "hn": "https://news.ycombinator.com/item?id=50426593"
+  },
+  {
+   "title": "Show HN: Play puzzle games in a feed like TikTok",
+   "points": 8,
+   "comments": 7,
+   "author": "trancence",
+   "date": "2026-06-27",
+   "url": "https://puzzle.express",
+   "hn": "https://news.ycombinator.com/item?id=48696749"
+  },
+  {
+   "title": "Show HN: Jigwise, free jigsaw puzzles in the browser",
+   "points": 8,
+   "comments": 2,
+   "author": "puzzlewright",
+   "date": "2026-11-12",
+   "url": "https://jigwise.com",
+   "hn": "https://news.ycombinator.com/item?id=50471267"
+  },
+  {
+   "title": "Show HN: FilmLink – The Wiki Game for Movies (Daily Puzzle and Multiplayer Beta)",
+   "points": 8,
+   "comments": 2,
+   "author": "danore2",
+   "date": "2026-02-25",
+   "url": "https://www.filmlink.io",
+   "hn": "https://news.ycombinator.com/item?id=47154056"
+  }
+ ],
+ "interactive fiction": [
+  {
+   "title": "Show HN: Discontinuum – An Interactive Fiction made during Claude's \"20% Time\"",
+   "points": 5,
+   "comments": 3,
+   "author": "jgautsch",
+   "date": "2026-01-04",
+   "url": "https://discontinuum.delmar.dev/",
+   "hn": "https://news.ycombinator.com/item?id=46492306"
+  },
+  {
+   "title": "Show HN: An interactive fiction game about PR reviews, AI agents, team dynamics",
+   "points": 5,
+   "comments": 1,
+   "author": "mvellandi",
+   "date": "2026-06-01",
+   "url": "https://themerge.vellandi.net/",
+   "hn": "https://news.ycombinator.com/item?id=48355216"
+  },
+  {
+   "title": "Show HN: SimFic – A multi-agent narrative simulation for interactive fiction",
+   "points": 4,
+   "comments": 4,
+   "author": "InitialPhase55",
+   "date": "2026-03-27",
+   "url": "https://simfic.net",
+   "hn": "https://news.ycombinator.com/item?id=47543554"
+  },
+  {
+   "title": "Show HN: Necessary Cuts – an interactive fiction fragment",
+   "points": 3,
+   "comments": 0,
+   "author": "liquidchicken",
+   "date": "2026-03-25",
+   "url": "https://necessarycuts.com/play",
+   "hn": "https://news.ycombinator.com/item?id=47513085"
+  },
+  {
+   "title": "Show HN: Interactive fiction to play in the email (also a web version)",
+   "points": 2,
+   "comments": 0,
+   "author": "pipnonsense",
+   "date": "2026-02-23",
+   "url": "https://rodrigopontes.confabulists.com/neuroweavers",
+   "hn": "https://news.ycombinator.com/item?id=47121510"
+  },
+  {
+   "title": "Show HN: Roleplay-first chat UI for an OpenAI-compatible chat completions API",
+   "points": 10,
+   "comments": 1,
+   "author": "abliterationai",
+   "date": "2026-01-08",
+   "url": "https://abliteration.ai/roleplay",
+   "hn": "https://news.ycombinator.com/item?id=46548238"
+  },
+  {
+   "title": "Show HN: I tried writing an interactive novel and accidentally built a platform",
+   "points": 3,
+   "comments": 1,
+   "author": "oldskultxo",
+   "date": "2026-03-06",
+   "hn": "https://news.ycombinator.com/item?id=47274370"
+  },
+  {
+   "title": "Show HN: We Gave an LLM Adventure Engine a Body, Now It Feels Exhausted",
+   "points": 1,
+   "comments": 0,
+   "author": "oopismcgoopis",
+   "date": "2026-02-25",
+   "url": "https://mycelialmirror.medium.com/we-gave-a-procedural-text-adventure-engine-a-body-and-now-it-knows-how-to-feel-exhausted-03ee6ed72766",
+   "hn": "https://news.ycombinator.com/item?id=47145800"
+  },
+  {
+   "title": "Show HN: Marsbase – an interactive map of fictional Mars outposts",
+   "points": 3,
+   "comments": 0,
+   "author": "si_164",
+   "date": "2026-08-28",
+   "url": "https://marsbase.io/",
+   "hn": "https://news.ycombinator.com/item?id=49473101"
+  },
+  {
+   "title": "Show HN: An interactive story about living on IRC in the '90s",
+   "points": 4,
+   "comments": 3,
+   "author": "sascotto",
+   "date": "2026-08-03",
+   "url": "https://eyearesee.winkingfig.com",
+   "hn": "https://news.ycombinator.com/item?id=49155710"
+  },
+  {
+   "title": "Show HN: Histomap Reborn – Interactive visualization of world history",
+   "points": 1,
+   "comments": 0,
+   "author": "robotelvis",
+   "date": "2026-02-02",
+   "url": "https://histomap.robennals.org/",
+   "hn": "https://news.ycombinator.com/item?id=46859409"
+  },
+  {
+   "title": "Show HN: I left my FAANG job at 50 to build a sci-fi game",
+   "points": 9,
+   "comments": 3,
+   "author": "gxd",
+   "date": "2025-11-07",
+   "hn": "https://news.ycombinator.com/item?id=45846056"
+  },
+  {
+   "title": "Show HN: ReacherX – Open-source platform to find and reach the right people",
+   "points": 3,
+   "comments": 2,
+   "author": "noobships",
+   "date": "2026-09-18",
+   "url": "https://github.com/VecterAI/reacher-x",
+   "hn": "https://news.ycombinator.com/item?id=49760135"
+  },
+  {
+   "title": "Show HN: Touch Trigonometry – interactive way to understand the trig functions",
+   "points": 2,
+   "comments": 0,
+   "author": "matthewtoast",
+   "date": "2026-02-23",
+   "url": "https://apps.apple.com/us/app/touch-trigonometry/id6758712159",
+   "hn": "https://news.ycombinator.com/item?id=47128665"
+  },
+  {
+   "title": "Show HN: Codenhack – An interactive terminal and live editor for beginners",
+   "points": 1,
+   "comments": 0,
+   "author": "codenhack",
+   "date": "2025-12-28",
+   "url": "https://codenhack.com/",
+   "hn": "https://news.ycombinator.com/item?id=46411388"
+  },
+  {
+   "title": "Show HN: Breadboard – A modern HyperCard for building web apps on the canvas",
+   "points": 93,
+   "comments": 16,
+   "author": "simquat",
+   "date": "2026-02-16",
+   "url": "https://breadboards.io/",
+   "hn": "https://news.ycombinator.com/item?id=47039051"
+  },
+  {
+   "title": "Show HN: ADBWrench – ADB in the browser with AI assistant, no install needed",
+   "points": 7,
+   "comments": 0,
+   "author": "mukulhjoshi",
+   "date": "2026-01-15",
+   "url": "https://adbwrench.com/",
+   "hn": "https://news.ycombinator.com/item?id=46634958"
+  },
+  {
+   "title": "Show HN: Turn Your Git Commits into Tweets",
+   "points": 3,
+   "comments": 2,
+   "author": "nikhonit",
+   "date": "2025-12-27",
+   "url": "https://landkit.pro/git-to-tweet",
+   "hn": "https://news.ycombinator.com/item?id=46406285"
+  },
+  {
+   "title": "Show HN: Synnote – AI That Turns Notes into Action",
+   "points": 3,
+   "comments": 2,
+   "author": "curiocity",
+   "date": "2025-10-26",
+   "url": "https://www.synnote.app/",
+   "hn": "https://news.ycombinator.com/item?id=45712861"
+  },
+  {
+   "title": "Show HN: Runyte – a modal editor with integrated terminals and a file manager",
+   "points": 2,
+   "comments": 0,
+   "author": "boredCoconut",
+   "date": "2026-09-10",
+   "url": "https://runyte.com",
+   "hn": "https://news.ycombinator.com/item?id=49648804"
+  },
+  {
+   "title": "Show HN: Qry – CLI web search that always outputs JSON, with swappable back ends",
+   "points": 2,
+   "comments": 0,
+   "author": "justEstif",
+   "date": "2026-03-08",
+   "url": "https://github.com/justEstif/qry",
+   "hn": "https://news.ycombinator.com/item?id=47294295"
+  },
+  {
+   "title": "Show HN: I built a mobile-web AI series generator",
+   "points": 2,
+   "comments": 0,
+   "author": "PieceOfOrion",
+   "date": "2026-03-04",
+   "url": "https://www.kiricast.com",
+   "hn": "https://news.ycombinator.com/item?id=47246801"
+  },
+  {
+   "title": "Show HN: Didacu – The fastest way to learn something new",
+   "points": 2,
+   "comments": 0,
+   "author": "datadiego",
+   "date": "2026-02-28",
+   "url": "https://didacu.com",
+   "hn": "https://news.ycombinator.com/item?id=47199232"
+  },
+  {
+   "title": "Show HN: Share Project Updates with Clients",
+   "points": 2,
+   "comments": 0,
+   "author": "ahuth",
+   "date": "2026-01-21",
+   "url": "https://dailydone.work",
+   "hn": "https://news.ycombinator.com/item?id=46704671"
+  },
+  {
+   "title": "Show HN: Noodle Seed – Create ChatGPT Apps for businesses to reach 800M users",
+   "points": 2,
+   "comments": 0,
+   "author": "uziiuzair",
+   "date": "2025-10-28",
+   "hn": "https://news.ycombinator.com/item?id=45740441"
+  },
+  {
+   "title": "Show HN: A public map of startups worldwide (anyone can add theirs)",
+   "points": 1,
+   "comments": 4,
+   "author": "zacharykapank",
+   "date": "2026-02-18",
+   "url": "https://startupsoftheworld.com",
+   "hn": "https://news.ycombinator.com/item?id=47064144"
+  },
+  {
+   "title": "Show HN: HSON / Hson-Live",
+   "points": 1,
+   "comments": 0,
+   "author": "neutralica",
+   "date": "2026-06-27",
+   "url": "https://github.com/neutralica/hson-live",
+   "hn": "https://news.ycombinator.com/item?id=48701702"
+  },
+  {
+   "title": "Show HN: Neo – AI-powered native .NET desktop app generator",
+   "points": 1,
+   "comments": 0,
+   "author": "hfriedrich",
+   "date": "2026-03-05",
+   "hn": "https://news.ycombinator.com/item?id=47262437"
+  },
+  {
+   "title": "Show HN: WFCLab – Interactive Wave Function Collapse Explorer (With Source)",
+   "points": 1,
+   "comments": 0,
+   "author": "Angle",
+   "date": "2026-09-17",
+   "url": "https://angularangel.neocities.org/wfc-lab",
+   "hn": "https://news.ycombinator.com/item?id=49744376"
+  },
+  {
+   "title": "Show HN: Jarvish – The J.A.R.V.I.S. AI inside your shell investigates errors",
+   "points": 4,
+   "comments": 0,
+   "author": "tominaga-h",
+   "date": "2026-02-28",
+   "url": "https://github.com/tominaga-h/jarvis-shell",
+   "hn": "https://news.ycombinator.com/item?id=47193789"
+  }
+ ],
+ "board game": [
+  {
+   "title": "Show HN: Play abstract strategy board games online with friends or against bots",
+   "points": 180,
+   "comments": 87,
+   "author": "abstractbg",
+   "date": "2025-10-16",
+   "url": "https://abstractboardgames.com/",
+   "hn": "https://news.ycombinator.com/item?id=45609478"
+  },
+  {
+   "title": "Show HN: Tiao, A two-player turn-based board game",
+   "points": 77,
+   "comments": 38,
+   "author": "trebeljahr",
+   "date": "2026-04-26",
+   "url": "https://playtiao.com",
+   "hn": "https://news.ycombinator.com/item?id=47914369"
+  },
+  {
+   "title": "Show HN: I created a tool to design and create foamcore inserts for boardgames",
+   "points": 53,
+   "comments": 30,
+   "author": "Rabidgremlin",
+   "date": "2025-12-28",
+   "url": "https://boxinsertdesigner.com/",
+   "hn": "https://news.ycombinator.com/item?id=46407292"
+  },
+  {
+   "title": "Show HN: Tiled Words, a daily puzzle inspired by board games and crosswords",
+   "points": 13,
+   "comments": 12,
+   "author": "paulhebert",
+   "date": "2025-10-29",
+   "url": "https://tiledwords.com/",
+   "hn": "https://news.ycombinator.com/item?id=45750789"
+  },
+  {
+   "title": "Show HN: A bilingual guide to Thaayam, a Tamil board game",
+   "points": 11,
+   "comments": 2,
+   "author": "amaldavid",
+   "date": "2026-04-26",
+   "url": "https://amal-david.github.io/thaayam-guide/",
+   "hn": "https://news.ycombinator.com/item?id=47910263"
+  },
+  {
+   "title": "Show HN: Sway, a board game benchmark for quantum computing",
+   "points": 4,
+   "comments": 0,
+   "author": "BinRoo",
+   "date": "2026-03-15",
+   "url": "https://shukla.io/blog/2026-03/sway.html",
+   "hn": "https://news.ycombinator.com/item?id=47388880"
+  },
+  {
+   "title": "Show HN: FunBox – A suite of interactive tools for board games and parties",
+   "points": 2,
+   "comments": 1,
+   "author": "zealer",
+   "date": "2026-02-03",
+   "url": "https://funbox.space",
+   "hn": "https://news.ycombinator.com/item?id=46870785"
+  },
+  {
+   "title": "Show HN: Dice for Board Games and RPGs",
+   "points": 2,
+   "comments": 0,
+   "author": "artiomyak",
+   "date": "2026-08-30",
+   "url": "https://onlinedice.app/",
+   "hn": "https://news.ycombinator.com/item?id=49496542"
+  },
+  {
+   "title": "Show HN: A board game with opponents trained by self-play",
+   "points": 2,
+   "comments": 0,
+   "author": "sharang33",
+   "date": "2026-07-27",
+   "url": "https://mighty840.itch.io/samudra-manthan",
+   "hn": "https://news.ycombinator.com/item?id=49075032"
+  },
+  {
+   "title": "Show HN: Meeple Scan – photograph a board game shelf, get each game's BGG rating",
+   "points": 1,
+   "comments": 0,
+   "author": "anzieulabs",
+   "date": "2026-11-02",
+   "url": "https://meeple-scan.com/?ref=hn",
+   "hn": "https://news.ycombinator.com/item?id=50342373"
+  },
+  {
+   "title": "Show HN: Say Cheese Game Hub – Roblox endings, board-game solver",
+   "points": 1,
+   "comments": 0,
+   "author": "fireflywedding",
+   "date": "2026-11-01",
+   "url": "https://saycheesegame.org/",
+   "hn": "https://news.ycombinator.com/item?id=50326425"
+  },
+  {
+   "title": "Show HN: Play Nightmare – the 1991 VHS board game, with a TV and phones",
+   "points": 1,
+   "comments": 0,
+   "author": "msukmanowsky",
+   "date": "2026-10-30",
+   "url": "https://playnightmare.app/",
+   "hn": "https://news.ycombinator.com/item?id=50305365"
+  },
+  {
+   "title": "Show HN: Samudra Manthana, an asymmetric strategy board game in the browser",
+   "points": 1,
+   "comments": 0,
+   "author": "sharang33",
+   "date": "2026-08-07",
+   "url": "https://mighty840.itch.io/samudra-manthan",
+   "hn": "https://news.ycombinator.com/item?id=49216530"
+  },
+  {
+   "title": "Show HN: GobanFTP – the board game Go played through FTP listings",
+   "points": 1,
+   "comments": 0,
+   "author": "molang163",
+   "date": "2026-05-23",
+   "url": "https://github.com/molang163/GobanFTP",
+   "hn": "https://news.ycombinator.com/item?id=48245699"
+  },
+  {
+   "title": "Show HN: Twixt – transform one word into another in four moves",
+   "points": 20,
+   "comments": 24,
+   "author": "unseen_forms",
+   "date": "2026-05-21",
+   "url": "https://twixt.games/",
+   "hn": "https://news.ycombinator.com/item?id=48221568"
+  },
+  {
+   "title": "Show HN: Jointter – A daily word puzzle using dots and lines",
+   "points": 15,
+   "comments": 32,
+   "author": "proy87",
+   "date": "2026-10-31",
+   "url": "https://www.jointter.com/",
+   "hn": "https://news.ycombinator.com/item?id=50317548"
+  },
+  {
+   "title": "Show HN: Skub – a sliding puzzle browser game",
+   "points": 11,
+   "comments": 6,
+   "author": "kasperstorgaard",
+   "date": "2026-03-24",
+   "url": "https://skub.app",
+   "hn": "https://news.ycombinator.com/item?id=47506958"
+  },
+  {
+   "title": "Show HN: Airport Swap",
+   "points": 6,
+   "comments": 5,
+   "author": "kzisme",
+   "date": "2026-03-16",
+   "url": "https://airportswap.com/",
+   "hn": "https://news.ycombinator.com/item?id=47404757"
+  },
+  {
+   "title": "Show HN: Tiled Words, a daily word puzzle game",
+   "points": 5,
+   "comments": 8,
+   "author": "paulhebert",
+   "date": "2025-10-19",
+   "url": "https://tiledwords.com/",
+   "hn": "https://news.ycombinator.com/item?id=45634525"
+  },
+  {
+   "title": "Show HN: List stuff to borrow for your people, anonymously",
+   "points": 5,
+   "comments": 5,
+   "author": "oliviasculley",
+   "date": "2026-08-12",
+   "url": "https://toolpool.garden",
+   "hn": "https://news.ycombinator.com/item?id=49272914"
+  },
+  {
+   "title": "Show HN: Squishword, a word game where meaning, not spelling, matters",
+   "points": 4,
+   "comments": 3,
+   "author": "sbloz",
+   "date": "2026-07-31",
+   "url": "https://squishword.com/",
+   "hn": "https://news.ycombinator.com/item?id=49124606"
+  },
+  {
+   "title": "Show HN: Play Riichi Mahjong Online",
+   "points": 3,
+   "comments": 5,
+   "author": "cerpins",
+   "date": "2025-12-25",
+   "url": "https://online-riichi.com",
+   "hn": "https://news.ycombinator.com/item?id=46383810"
+  },
+  {
+   "title": "Show HN: Roll Solver – daily multiplayer word puzzle PWA",
+   "points": 3,
+   "comments": 0,
+   "author": "peterbr",
+   "date": "2026-07-20",
+   "url": "https://rollsolver.com",
+   "hn": "https://news.ycombinator.com/item?id=48982389"
+  },
+  {
+   "title": "Show HN: Vein, a minimalist open-source resource management game",
+   "points": 2,
+   "comments": 2,
+   "author": "thevahidal",
+   "date": "2026-08-02",
+   "url": "https://d2ykijtrvb890q.cloudfront.net/",
+   "hn": "https://news.ycombinator.com/item?id=49142778"
+  },
+  {
+   "title": "Show HN: Heads or Tails? The Story of Building a Better Coin Flip",
+   "points": 2,
+   "comments": 2,
+   "author": "seagnson",
+   "date": "2025-10-11",
+   "url": "https://coin-flip.vip/",
+   "hn": "https://news.ycombinator.com/item?id=45546310"
+  },
+  {
+   "title": "Show HN: Ember – a strategy game where everyone moves at once",
+   "points": 2,
+   "comments": 0,
+   "author": "sundaypancakes",
+   "date": "2026-09-12",
+   "url": "https://playember.gg/",
+   "hn": "https://news.ycombinator.com/item?id=49675280"
+  },
+  {
+   "title": "Show HN: TUI Settlers of Catan built with Llamafile and Bonsai PrismML Models",
+   "points": 2,
+   "comments": 0,
+   "author": "river_otter",
+   "date": "2026-04-06",
+   "url": "https://github.com/mozilla-ai/settl",
+   "hn": "https://news.ycombinator.com/item?id=47661938"
+  },
+  {
+   "title": "Show HN: Free-to-play: A gem-collecting strategy game in the vein of Splendor",
+   "points": 1,
+   "comments": 1,
+   "author": "jonrosner",
+   "date": "2026-02-07",
+   "url": "https://caratria.com/",
+   "hn": "https://news.ycombinator.com/item?id=46923859"
+  },
+  {
+   "title": "Show HN: I wrote an implementation of the game Hitori using Claude Code",
+   "points": 1,
+   "comments": 1,
+   "author": "orsenthil",
+   "date": "2026-01-18",
+   "url": "https://senthil.learntosolveit.com/posts/2026/01/18/hitori.html",
+   "hn": "https://news.ycombinator.com/item?id=46671164"
+  },
+  {
+   "title": "Show HN: Every book, film and game HN has recommended since 2006",
+   "points": 1,
+   "comments": 0,
+   "author": "vuciv",
+   "date": "2026-11-03",
+   "url": "https://hn-recommends.vercel.app/",
+   "hn": "https://news.ycombinator.com/item?id=50355931"
+  }
+ ]
+}

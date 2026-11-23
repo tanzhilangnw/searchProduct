@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LQA Radar · 出海文案体检</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%232f5cf6'/%3E%3Ccircle cx='12' cy='12' r='7' fill='none' stroke='white' stroke-width='1.5'/%3E%3Ccircle cx='12' cy='12' r='2' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6" opacity=".55"/>
+          <path d="M12 12 L18.2 7.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="18.2" cy="7.2" r="1.8" fill="currentColor"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">LQA Radar</div>
+        <div class="brand-sub">出海文案体检</div>
+      </div>
+    </div>
+
+    <div class="rail-sec">
+      <div class="rail-label">当前项目</div>
+      <div class="project-card">
+        <div class="project-title" id="projectName">《灵石纪元》出海版</div>
+        <div class="project-meta"><span id="rowCount">114</span> 条文案 · 3 种语言</div>
+        <div class="project-bar"><i id="projectBar" style="width:0%"></i></div>
+        <div class="project-hint">提审前自动体检 · 本地运行</div>
+      </div>
+    </div>
+
+    <div class="rail-sec">
+      <div class="rail-label">语言</div>
+      <nav class="locale-nav" id="localeNav"></nav>
+    </div>
+
+    <div class="rail-sec rail-grow">
+      <div class="rail-label">检查项</div>
+      <div class="check-list">
+        <div class="check-item"><span class="dot dot-red"></span>占位符 / 富文本</div>
+        <div class="check-item"><span class="dot dot-orange"></span>漏译 / 中文残留</div>
+        <div class="check-item"><span class="dot dot-yellow"></span>术语 / 标点 / 空格</div>
+        <div class="check-item"><span class="dot dot-blue"></span>UI 长度溢出</div>
+      </div>
+    </div>
+
+    <div class="rail-foot">
+      <div class="engine-badge"><span class="pulse"></span>规则引擎 · 本地运行</div>
+      <div class="rail-note">原型不调用付费 API；生产版可接 LLM 做语境与语气检查。</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="crumb"><span>工作台</span><span class="sep">/</span><span class="now">本地化体检</span></div>
+      <div class="top-actions">
+        <button class="btn btn-ghost" id="btnReset" title="恢复示例数据">重置示例</button>
+        <button class="btn btn-ghost" id="btnImport" title="导入 CSV">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 16V4m0 0L7 9m5-5 5 5M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          导入 CSV
+        </button>
+        <button class="btn btn-primary" id="btnExport">
+          <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M12 4v12m0 0 5-5m-5 5-5-5M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          导出报告
+        </button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="kicker">LOCALIZATION PRE-FLIGHT</div>
+        <h1>提审前 3 分钟，<br>扫完 3 种语言的文案雷区。</h1>
+        <p>把「翻完就发」变成「扫完再发」：占位符、漏译、中文残留、术语不一致、UI 溢出，一次列清楚，并给出能直接改的句子。</p>
+        <div class="hero-tags">
+          <span class="tag">不碰玩家可见内容</span>
+          <span class="tag">不依赖付费 API</span>
+          <span class="tag">可导出提审清单</span>
+        </div>
+      </div>
+
+      <div class="score-card">
+        <div class="score-ring">
+          <svg viewBox="0 0 132 132" width="132" height="132" aria-hidden="true">
+            <circle cx="66" cy="66" r="56" fill="none" stroke="#e8ebf2" stroke-width="11"/>
+            <circle id="scoreArc" cx="66" cy="66" r="56" fill="none" stroke="#0e9f6e" stroke-width="11"
+              stroke-linecap="round" stroke-dasharray="351.86" stroke-dashoffset="351.86"
+              transform="rotate(-90 66 66)"/>
+          </svg>
+          <div class="score-center">
+            <div class="score-num" id="scoreNum">--</div>
+            <div class="score-label">可上线度</div>
+          </div>
+        </div>
+        <div class="score-side">
+          <div class="score-verdict" id="scoreVerdict">扫描中…</div>
+          <div class="score-desc" id="scoreDesc">正在读取文案表。</div>
+          <div class="score-legend">
+            <span><i class="lg lg-red"></i><b id="statBlocking">0</b> 阻塞</span>
+            <span><i class="lg lg-orange"></i><b id="statHigh">0</b> 高危</span>
+            <span><i class="lg lg-yellow"></i><b id="statMedium">0</b> 中危</span>
+            <span><i class="lg lg-blue"></i><b id="statLow">0</b> 提示</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="kpis">
+      <div class="kpi">
+        <div class="kpi-label">文案总数</div>
+        <div class="kpi-num" id="kpiRows">0</div>
+        <div class="kpi-sub">3 种语言 · 去重后的 key</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">问题总数</div>
+        <div class="kpi-num" id="kpiIssues">0</div>
+        <div class="kpi-sub" id="kpiIssueSub">平均每 5 条文案 1 个问题</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">阻塞项</div>
+        <div class="kpi-num kpi-red" id="kpiBlocking">0</div>
+        <div class="kpi-sub">占位符 / 漏译 / 富文本</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">预计人工复核</div>
+        <div class="kpi-num" id="kpiReview">0</div>
+        <div class="kpi-sub">只复核定级为高危以上的条目</div>
+      </div>
+    </section>
+
+    <section class="work">
+      <div class="work-head">
+        <div class="tabs" id="tabs">
+          <button class="tab active" data-tab="issues">问题清单 <span id="tabIssueCount">0</span></button>
+          <button class="tab" data-tab="glossary">术语表</button>
+          <button class="tab" data-tab="raw">原始数据</button>
+          <button class="tab" data-tab="method">检查方法</button>
+        </div>
+        <div class="scan-state" id="scanState"><span class="scan-dot"></span> 已扫描 · <span id="scanTime">刚刚</span></div>
+      </div>
+
+      <div class="panel active" id="panel-issues">
+        <div class="filters">
+          <div class="filter-group" id="severityFilters">
+            <button class="chip active" data-sev="all">全部</button>
+            <button class="chip" data-sev="critical">阻塞</button>
+            <button class="chip" data-sev="high">高危</button>
+            <button class="chip" data-sev="medium">中危</button>
+            <button class="chip" data-sev="low">提示</button>
+          </div>
+          <div class="filter-group" id="localeFilters">
+            <button class="chip active" data-loc="all">全部语言</button>
+            <button class="chip" data-loc="en">EN</button>
+            <button class="chip" data-loc="ja">日本語</button>
+            <button class="chip" data-loc="ko">한국어</button>
+          </div>
+          <label class="search">
+            <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            <input id="searchInput" type="search" placeholder="搜 key / 文案">
+          </label>
+        </div>
+
+        <div class="issue-summary" id="issueSummary"></div>
+        <div class="issue-list" id="issueList"></div>
+        <div class="empty" id="issueEmpty" hidden>
+          <div class="empty-mark">✓</div>
+          <div class="empty-title">这个筛选下没有问题了</div>
+          <div class="empty-sub">换一个语言或严重级别看看。</div>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-glossary">
+        <div class="glossary-head">
+          <div>
+            <h2>术语表</h2>
+            <p>同一个词在三种语言里必须只有一个写法。术语表是 LQA 的第一道防线。</p>
+          </div>
+          <div class="glossary-badge" id="glossaryBadge">0 个术语</div>
+        </div>
+        <div class="glossary-table" id="glossaryTable"></div>
+        <div class="note-card">
+          <b>为什么术语表重要？</b>
+          <span>「灵石」在英文里如果同时出现 Spirit Stone / Immortal Stone / Soul Stone，玩家会以为是三种道具。原型用术语表做一致性检查；生产版可以由 LLM 从项目里自动抽取术语候选。</span>
+        </div>
+      </div>
+
+      <div class="panel" id="panel-raw">
+        <div class="raw-head">
+          <div>
+            <h2>原始数据</h2>
+            <p>长表格式：<code>key, locale, source, target, maxLen, context</code>。可直接替换成你的项目导出。</p>
+          </div>
+          <div class="raw-count" id="rawCount">0 行</div>
+        </div>
+        <div class="raw-table-wrap"><table class="raw-table" id="rawTable"></table></div>
+      </div>
+
+      <div class="panel" id="panel-method">
+        <div class="method-grid">
+          <div class="method-card">
+            <div class="method-num">01</div>
+            <h3>确定性检查</h3>
+            <p>占位符、富文本标签、空值、长度上限、数字、标点、空格。规则能覆盖 LQA 里最容易漏、也最不该漏的一层。</p>
+          </div>
+          <div class="method-card">
+            <div class="method-num">02</div>
+            <h3>术语一致性</h3>
+            <p>拿术语表逐条比对：源文出现术语时，目标语言必须命中指定译法；同一术语的变体会被标出来。</p>
+          </div>
+          <div class="method-card">
+            <div class="method-num">03</div>
+            <h3>长度模型</h3>
+            <p>按 UI 的 maxLen 判断溢出；没有 maxLen 时用源文长度比例做预警。英文通常比中文长 1.3–1.8 倍，日韩更长。</p>
+          </div>
+          <div class="method-card">
+            <div class="method-num">04</div>
+            <h3>中文残留</h3>
+            <p>英文/韩文里出现汉字、日文里出现简体中文游戏词（修仙/灵石/宗门），通常意味着漏译或直接复制了源文。</p>
+          </div>
+        </div>
+        <div class="method-note">
+          <b>原型的边界：</b>这里没有调用大模型，所以不会判断「这句翻译是否地道」。它做的是提审前必须清零的机械错误——把人的时间留给语气、文化、角色口吻这些真正需要判断的部分。
+        </div>
+        <div class="method-cta">
+          <div>
+            <div class="method-cta-title">想接自己的项目？</div>
+            <div class="method-cta-sub">导出 CSV，按长表格式填好后拖进来；或者直接改 <code>app.js</code> 里的 <code>SAMPLE_KEYS</code>。</div>
+          </div>
+          <button class="btn btn-primary" id="btnMethodImport">导入我的 CSV</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div>LQA Radar · 原型 v0.1 · 2026-11-21</div>
+      <div>规则引擎本地运行 · 不上传任何文案 · 不调用付费 API</div>
+    </footer>
+  </main>
+</div>
+
+<div class="modal" id="importModal" hidden>
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>
+        <div class="modal-kicker">IMPORT</div>
+        <h2>导入文案表</h2>
+      </div>
+      <button class="icon-btn" id="btnCloseModal" aria-label="关闭">×</button>
+    </div>
+    <p class="modal-desc">CSV 长表格式，第一行是表头。必须有 <code>key, locale, source, target</code> 四列；<code>maxLen</code> 和 <code>context</code> 可选。</p>
+    <label class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" accept=".csv,text/csv" hidden>
+      <div class="drop-mark">CSV</div>
+      <div class="drop-title">把 CSV 拖到这里，或点击选择</div>
+      <div class="drop-sub">示例：key,locale,source,target,maxLen,context</div>
+    </label>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="btnLoadSample">加载示例项目</button>
+      <span class="modal-hint">所有解析都在浏览器本地完成。</span>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
